@@ -1,0 +1,130 @@
+/*
+ * Profiles Module
+ * ======================================================================== */
+
+.profiles {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__header {
+    @include section-header;
+
+    @include large-and-up {
+      margin-bottom: 72px;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__heading {
+    p {
+      @include heading-4-alt;
+    }
+  }
+
+  &__items {
+    @include medium-and-up {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    @include animation-fade-in;
+
+    margin-bottom: 48px;
+    width: 100%;
+
+    @include medium-and-up {
+      margin-bottom: 0;
+      width: 48%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    @include image-wrapper;
+
+    margin: 0 0 24px -28px;
+    padding-bottom: 60%;
+    width: calc(100% + 56px);
+
+    @include medium-and-up {
+      margin: 0 0 32px;
+      width: 100%;
+    }
+
+    .profiles__item--square & {
+      padding-bottom: 100%;
+    }
+
+    .profiles__item--portrait & {
+      padding-bottom: 140%;
+    }
+  }
+
+  &__img {
+    @include image;
+
+    object-position: 50% 0;
+  }
+
+  &__name {
+    @include heading-3-alt-sm;
+
+    margin-bottom: 8px;
+
+    @include medium-and-up {
+      margin-bottom: 4px;
+    }
+  }
+
+  &__title {
+    @include heading-5-alt;
+
+    color: $gray;
+    margin-bottom: 16px;
+  }
+
+  &__body {
+    @include clear-last-child;
+
+    color: $body-gray;
+
+    p {
+      @include heading-6;
+    }
+  }
+
+  .social__link {
+    margin-bottom: 24px;
+
+    &--facebook {
+      background-image: url('../svgs/facebook-red.svg');
+      background-size: 8px 16px;
+    }
+
+    &--instagram {
+      background-image: url('../svgs/instagram-red.svg');
+      background-size: 16px 16px;
+    }
+
+    &--linkedin {
+      background-image: url('../svgs/linkedin-red.svg');
+      background-size: 16px 16px;
+    }
+
+    &--twitter {
+      background-image: url('../svgs/twitter-red.svg');
+      background-size: 16px 12px;
+    }
+  }
+}

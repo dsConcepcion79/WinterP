@@ -1,0 +1,66 @@
+/*
+ * Feature Article Module
+ * ======================================================================== */
+
+.feature-article {
+  @include section;
+
+  background-color: $black !important;
+  color: $white;
+  padding: 72px $site-margin-sm;
+
+  &__image {
+    @include image-wrapper;
+    @include bg-image;
+
+    &::after {
+      @include lowlight-grad-80;
+    }
+  }
+
+  &__img {
+    @include image;
+    @include animation-soft-zoom;
+  }
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__content {
+    @include clear-last-child;
+
+    max-width: $max-width-hero;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+
+    color: $white;
+  }
+
+  &__heading {
+    @include heading-1-alt;
+
+    margin-bottom: 32px !important;
+  }
+
+  &__link {
+    @include cta-link;
+
+    color: $white !important;
+  }
+
+  &--centered {
+    justify-content: center;
+    text-align: center;
+
+    .feature-article__content {
+      margin: 0 auto;
+    }
+
+    .feature-article__heading {
+      @include heading-2;
+    }
+  }
+}

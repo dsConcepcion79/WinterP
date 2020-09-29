@@ -1,0 +1,37 @@
+<section class="companies">
+    <div class="companies__inner">
+        <div class="companies__header">
+            <div class="companies__eyebrow">{{ module.eyebrow }}</div>
+            <h3 class="companies__heading">{{ module.heading }}</h3>
+            {% if module.button_link %}
+                <a
+                    class="companies__btn"
+                    href="{{ module.button_link.url }}"
+                    target="{{ module.button_link.target ? module.button_link.target : '_self' }}"
+                >
+                    <span class="companies__btn-label">{{ module.button_link.title }}</span>
+                </a>
+            {% endif %}
+        </div>
+
+        <ul class="companies__list" role="presentation">
+            {% for item in module.items %}
+                <li class="companies__list-item">
+                    <a class="companies__link" href="{{ item.post.path }}">
+                        <div class="companies__image">
+                            <img
+                                class="companies__img"
+                                src="{{ Image(item.logo).src('large') }}"
+                                srcset="{{ Image(item.logo).srcset }}"
+                                alt="{{ Image(item.logo).alt }}"
+                                data-object-fit
+                            />
+                        </div>
+                    </a>
+                </li>
+            {% endfor %}
+            <li class="companies__list-item companies__list-item--placeholder"></li>
+            <li class="companies__list-item companies__list-item--placeholder"></li>
+        </ul>
+    </div>
+</section>

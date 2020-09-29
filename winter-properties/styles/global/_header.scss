@@ -1,0 +1,61 @@
+/*
+ * Global Header
+ * ======================================================================== */
+
+.global-header {
+  align-items: center;
+  background-color: $white;
+  display: flex;
+  height: $header-height-sm;
+  justify-content: space-between;
+  padding: 0 $site-margin-sm;
+  position: sticky;
+  top: 0;
+  transition: background-color 100ms linear;
+  width: 100%;
+  z-index: 2;
+
+  @include large-and-up {
+    height: $header-height-lg;
+  }
+
+  &__heading {
+    margin-bottom: 0;
+  }
+
+  &__link {
+    background-image: url('../svgs/logo.svg');
+    background-size: 83px 20px;
+    display: block;
+    height: 20px;
+    margin: 0;
+    width: 83px;
+
+    @include large-and-up {
+      background-size: 116px 28px;
+      height: 28px;
+      width: 116px;
+    }
+  }
+
+  &__nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    @include large-and-up {
+      flex-direction: row;
+    }
+  }
+
+  .body--inverted:not(.body--pinned) & {
+    @include large-and-up {
+      background-color: $black;
+
+      &__link {
+        background-image: url('../svgs/logo-white.svg');
+      }
+    }
+  }
+}

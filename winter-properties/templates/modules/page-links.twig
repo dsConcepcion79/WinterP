@@ -1,0 +1,28 @@
+<section class="page-links">
+    <div class="page-links__inner">
+        <header class="page-links__header">
+            {% if module.eyebrow %}
+                <div class="page-links__eyebrow">{{ module.eyebrow }}</div>
+            {% endif %}
+            <h3 class="page-links__heading">{{ module.heading }}</h3>
+        </header>
+        <div class="page-links__items">
+            {% for item in module.items %}
+                <article class="page-links__item">
+                    <a class="page-links__link" href="{{ item.post.path }}">
+                        <div class="page-links__image">
+                            <img
+                                class="page-links__img"
+                                src="{{ item.post.thumbnail.src }}"
+                                srcset="{{ item.post.thumbnail.srcset }}"
+                                alt="{{ item.post.thumbnail.alt }}"
+                                data-object-fit
+                            />
+                        </div>
+                        <h3 class="page-links__title">{{ item.post.title }}</h3>
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

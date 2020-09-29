@@ -1,0 +1,24 @@
+<section class="news">
+    <div class="news__inner">
+        <header class="news__header">
+            {% if module.eyebrow %}
+                <div class="news__eyebrow">{{ module.eyebrow }}</div>
+            {% endif %}
+            <h3 class="news__heading">{{ module.heading }}</h3>
+            {% if module.button_link %}
+                <a
+                    class="news__btn"
+                    href="{{ module.button_link.url }}"
+                    target="{{ module.button_link.target ? module.button_link.target : '_self' }}"
+                >
+                    <span class="news__btn-label">{{ module.button_link.title }}</span>
+                </a>
+            {% endif %}
+        </header>
+        <div class="news__items">
+            {% for item in module.items %}
+                {% include 'partials/news-item.twig' with { type: 'news', item: item.post } %}
+            {% endfor %}
+        </div>
+    </div>
+</section>

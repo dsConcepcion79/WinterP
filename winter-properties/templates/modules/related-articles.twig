@@ -1,0 +1,16 @@
+<section class="related-articles">
+    <div class="related-articles__inner">
+        <header class="related-articles__header">
+            {% if module.eyebrow %}
+                <div class="related-articles__eyebrow">{{ module.eyebrow }}</div>
+            {% endif %}
+            <h4 class="related-articles__heading">{{ module.heading }}</h4>
+        </header>
+        <div class="related-articles__items">
+            {% for item in module.items %}
+                {% include 'partials/news-item.twig' with { type: 'related-articles', item: item.post } %}
+            {% endfor %}
+            <div class="related-articles__item related-articles__item--placeholder"></div>
+        </div>
+    </div>
+</section>

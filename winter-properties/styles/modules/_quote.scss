@@ -1,0 +1,85 @@
+/*
+ * Quote Module
+ * ======================================================================== */
+
+.quote {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+
+    @include medium-and-up {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    @include flex-column;
+    @include animation-soft-ease;
+
+    margin-bottom: 48px;
+    width: 100%;
+
+    @include medium-and-up {
+      margin-bottom: 0;
+      width: 48%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:nth-child(even) {
+      flex-direction: column-reverse;
+      justify-content: flex-end;
+
+      .quote__content {
+        margin: 32px 0 0;
+
+        @include medium-and-up {
+          margin: 56px 0 0 48px;
+        }
+
+        @include large-and-up {
+          margin: 80px 0 0 72px;
+        }
+      }
+    }
+  }
+
+  &__content {
+    padding: 0 0 48px;
+    width: 100%;
+
+    @include medium-and-up {
+      padding: 0 48px 72px 0;
+    }
+
+    @include large-and-up {
+      padding: 0 72px 96px 0;
+    }
+  }
+
+  &__body {
+    @include clear-last-child;
+
+    margin-bottom: 24px;
+
+    p {
+      @include heading-4-alt;
+    }
+  }
+
+  &__author {
+    @include heading-6;
+
+    &-title {
+      color: $body-gray;
+    }
+  }
+
+  &__post {
+    @include news-item;
+  }
+}

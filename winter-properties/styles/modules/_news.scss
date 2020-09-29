@@ -1,0 +1,77 @@
+/*
+ * News Module
+ * ======================================================================== */
+
+.news {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__header {
+    @include section-header;
+
+    @include large-and-up {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__heading {
+    margin-bottom: 32px;
+
+    @include large-and-up {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__btn {
+    @include btn-arrow;
+  }
+
+  &__items {
+    @include medium-and-up {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    @include news-item;
+    @include animation-soft-ease;
+
+    margin-bottom: 32px;
+
+    @include medium-and-up {
+      margin-bottom: 0;
+      width: 31%;
+    }
+
+    @include large-and-up {
+      &:nth-child(1) {
+        margin-top: 6%;
+        width: 31%;
+      }
+
+      &:nth-child(2) {
+        width: 41%;
+
+        .news__item-title {
+          @include heading-4;
+        }
+      }
+
+      &:nth-child(3) {
+        width: 21%;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,146 @@
+<section class="spotlight_grid">
+    <div class="spotlight__inner">
+        <div class="spotlight__content">
+            <header class="spotlight__header">
+                <h4>{{ module.heading }}</h4>
+            </header>
+        </div>
+        <div class="spotlight__slides">
+            <div class="spotlight__slides-wrapper">
+                {% if module.items|length %}
+                    {% for item in module.items %}
+                        <figure class="spotlight__slide">
+                            <a class="spotlight__slide-link spotlight__slide-content" href="{{ item.post.path }}">
+                                <div class="spotlight__slide-image">
+                                    <img
+                                        class="spotlight__slide-img"
+                                        src="{{ item.post.thumbnail.src('large') }}"
+                                        srcset="{{ item.post.thumbnail.srcset }}"
+                                        alt="{{ item.post.thumbnail.alt }}"
+                                        data-object-fit
+                                    />
+                                </div>
+                                <h3 class="spotlight__slide-title">{{ item.post.title }}</h3>
+                                {% if item.post.categories|length %}
+                                    <div class="spotlight__slide-category">
+                                        {{ item.post.categories[0].name }}
+                                    </div>
+                                {% endif %}
+                            </a>
+                            {% if item.caption %}
+                                <figcaption class="spotlight__slide-caption">
+                                    {{ item.caption }}
+                                </figcaption>
+                            {% endif %}
+                        </figure>
+                    {% endfor %}
+                {% elseif module.gallery|length %}
+                    {% for image in module.gallery %}
+                        <figure class="spotlight__slide">
+                            <div class="spotlight__slide-content">
+                                <div class="spotlight__slide-image">
+                                    <img
+                                        class="spotlight__slide-img"
+                                        src="{{ Image(image).src }}"
+                                        srcset="{{ Image(image).srcset }}"
+                                        alt="{{ Image(image).alt }}"
+                                        data-object-fit
+                                    />
+                                </div>
+                            </div>
+                            {% if Image(image).caption %}
+                                <figcaption class="spotlight__slide-caption">
+                                    {{ Image(image).caption }}
+                                </figcaption>
+                            {% endif %}
+                        </figure>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+  <!--  <div class="spotlight__nav" aria-controls="spotlight-slides">
+        <button class="spotlight__nav-btn spotlight__prev">
+            <span class="visually-hidden">Previous Slide</span>
+        </button>
+        <button class="spotlight__nav-btn spotlight__next">
+            <span class="visually-hidden">Next Slide</span>
+        </button>
+    </div>
+    -->
+	{% if module.see_all_url %}
+	<div class="spotlight_see_all">
+		<a class="see_all_url press__link" href="{{ module.see_all_url }}">See all <span class="arrow_hover">&#8594;</span></a>
+	</div>
+	{% endif %}
+	<style type="text/css">
+.spotlight_see_all {
+    width: 100%;
+    max-width: 1264px;
+    margin: 20px auto;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    overflow: hidden;
+    text-align:center;
+}
+.spotlight_see_all a.see_all_url {
+    float: unset;
+    color: #000 !important;
+    font-size: 24px;
+    line-height: 34px;
+}
+.spotlight_grid .spotlight__slides-wrapper {
+	flex-wrap: wrap;
+}
+.spotlight_grid .spotlight__slide {
+    flex: 1 1 31%;
+}
+.spotlight_grid .spotlight__slide-title {
+    font-size: 26px;
+    line-height: 32px;
+}
+.spotlight_grid .spotlight__inner {
+    max-width: 1264px;
+    width: 100%;
+}
+.spotlight_grid .spotlight__inner {
+    max-width: 1264px;
+    width: 100%;
+    margin-top: 80px;
+    margin-bottom: 80px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.spotlight_grid .spotlight__content {
+    margin-bottom: 40px;
+}
+.spotlight_grid .spotlight__slide {
+    flex: 1 1 calc(33.33% - 20px);
+    background: #ddd;
+    margin: 10px;
+}
+.spotlight_grid .spotlight__slide-content {
+    opacity: 1;
+}
+.spotlight_grid header.spotlight__header {
+    padding-left: 20px;
+}
+.spotlight_grid figcaption.spotlight__slide-caption {
+    display: none;
+}
+
+@media only screen and (min-width:768px) and (max-width:1000px){
+.spotlight_grid .spotlight__slide {
+    flex: 1 1 calc(50% - 20px);
+    margin: 10px;
+}
+}
+@media only screen and (max-width:767px){
+.spotlight_grid .spotlight__slide {
+    flex: 1 1 calc(100% - 20px);
+    margin: 10px;
+    padding: 10px;
+}
+}
+    </style>
+</section>

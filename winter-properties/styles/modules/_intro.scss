@@ -1,0 +1,61 @@
+/*
+ * Intro Module
+ * ======================================================================== */
+
+.intro {
+  @include section;
+
+  a {
+    color: $red;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__content {
+    @include clear-last-child;
+
+    max-width: $max-width-content;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__title {
+    margin-bottom: 24px;
+  }
+
+  &__heading {
+    p {
+      @include heading-4-alt;
+    }
+
+    margin-bottom: 24px;
+  }
+
+  &__body {
+    @include clear-last-child;
+
+    p {
+      @include heading-6;
+    }
+  }
+
+  &--dark {
+    background-color: $black !important;
+    color: $white;
+
+    .intro__body {
+      p {
+        color: $gray;
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<section class="team-list">
+	{% if module.gallery_grid_heading %}
+    <div class="team-list__inner">
+            <header class="team-list__header">
+                <h4>{{ module.gallery_grid_heading }}</h4>
+            </header>
+    </div> 
+	{% endif %}
+    <div class="team-list__items gallery_grid">
+        {% for item in module.items %}
+            <article class="team-list__item team-list__item--{{ item.type }}">
+                {% if item.gallery_photo %}
+                    <div class="team-list__image">
+                        <img
+                            class="team-list__img"
+                            src="{{ Image(item.gallery_photo).src('large') }}"
+                            srcset="{{ Image(item.gallery_photo).srcset }}"
+                            alt="{{ Image(item.gallery_photo).alt }}"
+                            data-object-fit="cover"
+                            data-object-position="50% 0"
+                        />
+                    </div>
+                {% endif %}
+                <h6 class="team-list__name">{{ item.photo_heading }}</h6>
+                <div class="team-list__title">{{ item.photo_department }}</div>
+               
+            </article>
+        {% endfor %}
+        <div class="team-list__item team-list__item--placeholder"></div>
+    </div>
+	{% if module.see_all_url %}
+	<div class="gallery_see_all">
+		<a class="see_all_url press__link" href="{{ module.see_all_url }}">See all  <span class="arrow_hover">&#8594;</span></a>
+	</div>
+	{% endif %}
+	<style type="text/css">
+.gallery_see_all {
+    width: 100%;
+    max-width: 1264px;
+    margin: 20px auto;
+	margin-top: 50px;
+}
+a.see_all_url {
+    float: right;
+    color: #000 !important;
+    font-size: 24px;
+    line-height: 34px;
+}
+	</style>
+	
+</section>

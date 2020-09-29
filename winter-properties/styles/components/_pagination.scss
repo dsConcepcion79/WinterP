@@ -1,0 +1,51 @@
+/*
+ * Pagination Component
+ * ======================================================================== */
+
+.pagination {
+  @include heading-6;
+
+  padding-top: 48px;
+
+  @include large-and-up {
+    padding-top: 120px;
+  }
+
+  &__list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list-item {
+    margin-right: 32px;
+
+    &--prev {
+      margin-right: 48px;
+    }
+
+    &--next {
+      margin-left: 16px;
+    }
+  }
+
+  &__link {
+    &--current {
+      color: $black;
+    }
+
+    &--disabled {
+      color: $line-gray;
+    }
+  }
+
+  a.pagination__link {
+    color: $gray;
+    text-decoration: none;
+
+    &:hover {
+      color: $red;
+    }
+  }
+}

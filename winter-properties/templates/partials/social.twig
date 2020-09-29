@@ -1,0 +1,16 @@
+{% if socials|length %}
+    <div class="social">
+        <ul class="social__list" role="presentation">
+            {% for social in socials %}
+                <li class="social__list-item">
+                    <a class="social__link social__link--{{ social.icon }}"
+                        href="{{ social.link.url }}"
+                        target="{{ social.link.target ? social.link.target : '_self' }}"
+                    >
+                        <span class="visually-hidden">{{ social.link.title }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

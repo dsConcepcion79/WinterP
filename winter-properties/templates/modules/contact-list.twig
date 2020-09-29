@@ -1,0 +1,18 @@
+<section class="contact-list">
+    <div class="contact-list__inner">
+        <ul class="contact-list__list" role="presentation">
+            {% for item in module.items %}
+                <li class="contact-list__list-item">
+                    <h5 class="contact-list__company">{{ item.company }}</h5>
+                    <div class="contact-list__name">{{ item.name }}</div>
+                    <div class="contact-list__phone">{{ item.phone_number }}</div>
+                    <a class="contact-list__email" href="mailto:{{ item.email }}">
+                        {{ item.email }}
+                    </a>
+                </li>
+            {% endfor %}
+            <li class="contact-list__list-item contact-list__list-item--placeholder"></li>
+            <li class="contact-list__list-item contact-list__list-item--placeholder"></li>
+        </ul>
+    </div>
+</section>

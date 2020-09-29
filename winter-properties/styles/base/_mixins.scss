@@ -1,0 +1,796 @@
+/*
+ * Media Queries
+ * ======================================================================== */
+
+@mixin extra-small-only {
+  @media (max-width: #{$extra-small-max-width}) {
+    @content;
+  }
+}
+
+@mixin small-only {
+  @media (max-width: #{$small-max-width}) {
+    @content;
+  }
+}
+
+@mixin medium-only {
+  @media (min-width: #{$medium-min-width}) and (max-width: #{$medium-max-width}) {
+    @content;
+  }
+}
+
+@mixin medium-and-up {
+  @media (min-width: #{$medium-min-width}) {
+    @content;
+  }
+}
+
+@mixin large-only {
+  @media (min-width: #{$large-min-width}) and (max-width: #{$large-max-width}) {
+    @content;
+  }
+}
+
+@mixin large-and-up {
+  @media (min-width: #{$large-min-width}) {
+    @content;
+  }
+}
+
+@mixin extra-large-only {
+  @media (min-width: #{$extra-large-min-width}) {
+    @content;
+  }
+}
+
+@mixin site-min-height {
+  @media (max-height: #{$site-min-height}) {
+    @content;
+  }
+}
+
+/*
+ * Type
+ * ======================================================================== */
+
+@mixin rajdhani {
+  font-family: $family-rajdhani;
+  font-weight: $weight-regular;
+  text-transform: uppercase;
+}
+
+@mixin sohne {
+  font-family: $family-sohne;
+  font-weight: $weight-regular;
+  text-transform: none;
+}
+
+/*
+ * Headers
+ * ======================================================================== */
+
+@mixin heading-1 {
+  @include rajdhani;
+
+  font-size: 48px;
+  line-height: 1;
+
+  @include extra-small-only {
+    font-size: 32px;
+    line-height: 1;
+  }
+
+  @include large-and-up {
+    font-size: 64px;
+    line-height: 1;
+  }
+}
+
+@mixin heading-1-alt {
+  @include sohne;
+
+  font-size: 36px;
+  line-height: 1.22;
+
+  @include large-and-up {
+    font-size: 56px;
+    line-height: 1.14;
+  }
+}
+
+@mixin heading-2 {
+  @include sohne;
+
+  font-size: 32px;
+  line-height: 1.25;
+
+  @include large-and-up {
+    font-size: 48px;
+    line-height: 1.17;
+  }
+}
+
+@mixin heading-3 {
+  @include sohne;
+
+  font-size: 28px;
+  line-height: 1.29;
+
+  @include large-and-up {
+    font-size: 36px;
+    line-height: 1.22;
+  }
+}
+
+@mixin heading-3-alt-lg {
+  @include sohne;
+
+  font-size: 24px;
+  line-height: 1.33;
+
+  @include large-and-up {
+    font-size: 36px;
+    line-height: 1.22;
+  }
+}
+
+@mixin heading-3-alt-sm {
+  @include sohne;
+
+  font-size: 24px;
+  line-height: 1.33;
+
+  @include large-and-up {
+    font-size: 32px;
+    line-height: 1.25;
+  }
+}
+
+@mixin heading-4 {
+  @include sohne;
+
+  font-size: 20px;
+  line-height: 1.4;
+
+  @include large-and-up {
+    font-size: 28px;
+    line-height: 1.29;
+  }
+}
+
+@mixin heading-4-alt {
+  @include sohne;
+
+  font-size: 20px;
+  line-height: 1.4;
+
+  @include large-and-up {
+    font-size: 24px;
+    line-height: 1.33;
+  }
+}
+
+@mixin heading-5 {
+  @include sohne;
+
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+@mixin heading-5-alt {
+  @include sohne;
+
+  font-size: 16px;
+  line-height: 1.5;
+
+  @include large-and-up {
+    font-size: 20px;
+    line-height: 1.4;
+  }
+}
+
+@mixin heading-6 {
+  @include sohne;
+
+  font-size: 14px;
+  line-height: 1.71;
+
+  @include large-and-up {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
+
+/*
+ * Body
+ * ======================================================================== */
+
+@mixin body-1 {
+  @include sohne;
+
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@mixin body-2 {
+  @include sohne;
+
+  font-size: 14px;
+  line-height: 1.71;
+}
+
+@mixin body-3 {
+  @include sohne;
+
+  font-size: 12px;
+  line-height: 1.67;
+}
+
+/*
+ * Misc
+ * ======================================================================== */
+
+@mixin eyebrow {
+  @include body-2;
+
+  color: $red;
+  margin-bottom: 16px;
+
+  @include large-and-up {
+    margin-bottom: 24px;
+  }
+}
+
+@mixin label {
+  @include body-3;
+
+  background-color: $red;
+  color: $white;
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+@mixin stat-1 {
+  @include sohne;
+
+  color: $red;
+  font-size: 64px;
+  line-height: 1.13;
+
+  @include extra-small-only {
+    font-size: 56px;
+    line-height: 1.14;
+  }
+
+  @include medium-and-up {
+    font-size: 110px;
+    line-height: 1;
+  }
+}
+
+@mixin stat-2 {
+  @include sohne;
+
+  color: $red;
+  font-size: 56px;
+  line-height: 1.14;
+
+  @include medium-and-up {
+    font-size: 88px;
+    line-height: 1;
+  }
+}
+
+@mixin btn-reset {
+  background: none;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 0;
+  cursor: pointer;
+  font-family: $family-sohne;
+  font-weight: $weight-regular;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+
+  &[type='button'] {
+    appearance: none;
+  }
+}
+
+@mixin lowlight {
+  background-color: $black-20;
+  content: '';
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+@mixin lowlight-grad-80 {
+  @include lowlight;
+
+  background: $black-grad-80;
+  background-color: transparent;
+}
+
+@mixin lowlight-grad-40 {
+  @include lowlight;
+
+  background: $black-grad-40;
+  background-color: transparent;
+}
+
+/*
+ * Links
+ * ======================================================================== */
+
+@mixin arrow-link {
+  display: block;
+
+  &::after {
+    background-image: url('../svgs/arrow-red.svg');
+    background-position: left bottom;
+    background-size: 1em;
+    content: '';
+    display: block;
+    height: 1.2em;
+    opacity: 0;
+    transition: height 100ms linear, opacity 100ms linear;
+    width: 100%;
+  }
+
+  a:hover &::after {
+    height: 1.2em;
+    opacity: 1;
+  }
+}
+
+@mixin arrow-link-white {
+  @include arrow-link;
+
+  &::after {
+    background-image: url('../svgs/arrow-white.svg');
+  }
+}
+
+@mixin cta-link {
+  @include btn-reset;
+  @include body-2;
+
+  color: $black !important;
+  display: inline-block;
+  padding-bottom: 4px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+
+  &:hover {
+    &::after {
+      width: 100%;
+    }
+  }
+
+  &::after {
+    background-color: $red;
+    bottom: 0;
+    content: '';
+    height: 1px;
+    left: 0;
+    position: absolute;
+    transition: width 100ms linear;
+    width: 60%;
+  }
+}
+
+@mixin btn-arrow {
+  @include btn-reset;
+  @include body-3;
+
+  background-color: $black;
+  border: 1px solid $white;
+  color: white !important;
+  display: inline-block;
+  padding: 16px 68px 16px 24px;
+  position: relative;
+  text-decoration: none;
+
+  &:hover {
+    &::before {
+      width: 100%;
+    }
+
+    &::after {
+      right: 20px;
+    }
+  }
+
+  &-label {
+    position: relative;
+    z-index: 1;
+  }
+
+  &::before {
+    background-color: $red;
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: width 100ms linear;
+    width: 0;
+  }
+
+  &::after {
+    background-image: url('../svgs/arrow-white.svg');
+    background-size: 20px 11px;
+    content: '';
+    height: 11px;
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: right 100ms linear;
+    width: 20px;
+  }
+
+  input[type="submit"] {
+    @include btn-reset;
+
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@mixin btn-arrow-inverted {
+  @include btn-arrow;
+
+  background-color: transparent;
+}
+
+@mixin btn-arrow-outline {
+  @include btn-arrow;
+
+  background-color: transparent;
+  border-color: $black;
+  color: $black !important;
+
+  &::after {
+    background-image: url('../svgs/arrow-black.svg');
+  }
+
+  &:hover {
+    border-color: $white;
+    color: $white !important;
+
+    &::after {
+      background-image: url('../svgs/arrow-white.svg');
+    }
+
+    input[type="submit"] {
+      color: $white;
+    }
+  }
+}
+
+@mixin news-item {
+  width: 100%;
+
+  a {
+    text-decoration: none;
+  }
+
+  &-image {
+    @include image-wrapper;
+
+    margin-bottom: 16px;
+    padding-bottom: 60%;
+    width: 100%;
+  }
+
+  &-img {
+    @include image;
+
+    transform: scale(1.2);
+    transition: transform 150ms ease-out;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  &-category {
+    @include label;
+
+    margin-bottom: 16px;
+
+    &--absolute {
+      bottom: 0;
+      left: 0;
+      margin-bottom: 0;
+      position: absolute;
+    }
+  }
+
+  &-title {
+    @include arrow-link;
+
+    margin-bottom: 0;
+  }
+
+  &-date {
+    @include body-3;
+
+    color: $gray;
+    margin-bottom: 16px;
+  }
+
+  &--no-image {
+    border-top: 1px solid $line-gray;
+    padding-top: 32px;
+  }
+}
+
+@mixin news-item-inverted {
+  @include news-item;
+
+  a {
+    color: $white;
+  }
+
+  h5 {
+    @include arrow-link-white;
+  }
+}
+
+/*
+ * Layout
+ * ======================================================================== */
+
+@mixin flex-column {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+@mixin clear-last-child {
+  *:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@mixin section {
+  @include flex-column;
+
+  background-position: center center;
+  background-size: cover;
+  overflow: hidden;
+  padding: 48px $site-margin-sm;
+  position: relative;
+  -webkit-transform: translate3d(0, 0, 0);
+  width: 100%;
+
+  @include large-and-up {
+    padding: 120px $site-margin-lg;
+  }
+}
+
+@mixin section-full {
+  max-width: $max-width-full;
+  width: 100%;
+}
+
+@mixin section-inner {
+  margin: 0 $inner-margin-sm;
+  max-width: $max-width-inner;
+  position: relative;
+  width: 100%;
+
+  @include large-and-up {
+    margin: 0 $inner-margin-lg;
+  }
+}
+
+@mixin section-header {
+  @include clear-last-child;
+
+  margin-bottom: 48px;
+  max-width: $max-width-content;
+
+  @include large-and-up {
+    margin-bottom: 120px;
+  }
+}
+
+@mixin image-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+@mixin image {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute !important;
+  top: 0;
+  width: 100%;
+}
+
+@mixin bg-image {
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+@mixin visually-hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+@mixin wysiwyg {
+  color: $body-gray;
+  position: relative;
+  width: 100%;
+
+  h2, h3, h4 {
+    color: $black;
+    margin: 32px 0;
+  }
+
+  p {
+    @include heading-6;
+    margin-bottom: 1.7em;
+  }
+
+  ol, ul {
+    @include heading-6;
+
+    margin: 32px 0;
+    padding-left: 48px;
+
+    li {
+      margin-bottom: 12px;
+    }
+  }
+
+  figcaption {
+    @include body-3;
+
+    color: $gray;
+    margin: 12px 0 0;
+    text-align: left;
+  }
+
+  figure.wp-block-image {
+    margin: 32px 0;
+  }
+
+  .wp-block-image {
+    @include animation-fade-in;
+
+    margin: 0;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+    }
+
+    figure {
+      margin: 32px 0;
+    }
+    .alignleft,
+    .alignright {
+      margin-bottom: 24px;
+      margin-top: 0;
+      width: 66%;
+    }
+
+    .alignleft {
+      margin-right: 24px;
+    }
+
+    .alignright {
+      margin-left: 24px;
+    }
+  }
+
+  .wp-block-quote {
+    margin: 32px;
+
+    p {
+      @include heading-3-alt-sm;
+
+      color: $black;
+      margin-bottom: 24px;
+    }
+
+    cite {
+      @include body-3;
+
+      color: $gray;
+    }
+  }
+
+  ul.wp-block-gallery {
+    margin: 32px 0 16px;
+    padding: 0;
+  }
+
+  .wp-block-cover {
+    margin: 32px 0;
+  }
+}
+
+/*
+ * Animation
+ * ======================================================================== */
+
+@mixin animation-fade-in {
+  opacity: 0;
+
+  transition: opacity 400ms linear;
+
+  .active & {
+    opacity: 1;
+  }
+
+  &.active {
+    opacity: 1;
+  }
+}
+
+@mixin animation-soft-zoom {
+  transform: scale(1.1);
+
+  .active & {
+    transform: scale(1);
+    transition: transform 2s ease-out;
+  }
+}
+
+@mixin animation-soft-ease {
+  opacity: 0;
+  transition: opacity 400ms linear, transform 600ms ease-out;
+
+  &:nth-child(1) {
+    transform: translateY(80px);
+  }
+
+  &:nth-child(2) {
+    transform: translateY(80px);
+    transition-delay: 150ms;
+  }
+
+  &:nth-child(3) {
+    transform: translateY(80px);
+    transition-delay: 300ms;
+  }
+
+  &:nth-child(4) {
+    transform: translateY(80px);
+    transition-delay: 450ms;
+  }
+
+  &:nth-child(5) {
+    transform: translateY(80px);
+    transition-delay: 600ms;
+  }
+
+  .active & {
+    opacity: 1;
+    transform: none !important;
+  }
+}

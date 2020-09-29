@@ -1,0 +1,35 @@
+<section class="news-list">
+    <div class="news-list__inner">
+        <header class="news-list__header">
+            {% if module.eyebrow %}
+                <div class="news-list__eyebrow">{{ module.eyebrow }}</div>
+            {% endif %}
+            <h3 class="news-list__heading">{{ module.heading }}</h3>
+            {% if module.link %}
+                <a
+                    class="business-links__link"
+                    href="{{ module.link.url }}"
+                    target="{{ module.link.target ? module.link.target : '_self' }}"
+                >
+                    {{ module.link.title }}
+                </a>
+            {% endif %}
+        </header>
+        <div class="news-list__items">
+            {% if items and items[module.category] %}
+                {% for item in items[module.category] %}
+                    {% include 'partials/news-item.twig' with { type: 'news-list', item: item } %}
+                {% endfor %}
+            {% else %}
+                {% for item in module.items %}
+                    {% include 'partials/news-item.twig' with { type: 'news-list', item: item.post } %}
+                {% endfor %}
+            {% endif %}
+            <div class="news-list__item news__item--placeholder"></div>
+            <div class="news-list__item news__item--placeholder"></div>
+        </div>
+        {% if items and items[module.category] and items|length == 1 %}
+            {% include 'partials/pagination.twig' with { pagination: items[module.category].pagination({ show_all: false, mid_size: 3, end_size: 2 }) } %}
+        {% endif %}
+    </div>
+</section>

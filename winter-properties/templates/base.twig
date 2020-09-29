@@ -1,0 +1,25 @@
+{% block html_head %}
+    {% include 'global/html-head.twig' %}
+{% endblock %}
+
+<body class="body--inverted {{ body_class }}" data-template="base.twig">
+    <div class="app">
+        {% block header %}
+            {% include 'global/header.twig' %}
+        {% endblock %}
+
+        <main class="global-main" role="main" aria-labelledby="title">
+            {% if title %}
+                <h1 class="visually-hidden" id="title">{{ title }}</h1>
+            {% endif %}
+
+            {% block content %}
+            {% endblock %}
+        </main>
+
+        {% block footer %}
+            {% include 'global/footer.twig' %}
+        {% endblock %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <h1 class="visually-hidden" id="title">{{ post.title }}</h1>
+
+    <article class="page page--search">
+        <div class="page__body">
+            <div class="page__content">
+                <section class="news-list">
+                    <div class="news-list__inner">
+                        {% block list_header %}
+                        {% endblock %}
+                        <div class="news-list__items">
+                            {% for post in posts %}
+                                <article class="news-list__item {{ post.thumbnail ? '' : 'news-list__item--no-image' }}">
+                                    <a class="news-list__item-link" href="{{ post.path }}">
+                                        {% if post.thumbnail %}
+                                            <div class="news-list__item-image">
+                                                <img
+                                                    class="news-list__item-img"
+                                                    src="{{ post.thumbnail.src('large') }}"
+                                                    srcset="{{ post.thumbnail.srcset }}"
+                                                    alt="{{ post.thumbnail.alt }}"
+                                                    data-object-fit
+                                                />
+                                                {% if post.categories|length %}
+                                                    <div class="news-list__item-category news-list__item-category--absolute">
+                                                        {{ post.categories[0].name }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        {% else %}
+                                            {% if post.categories|length %}
+                                                <div class="news-list__item-category">
+                                                    {{ post.categories[0].name }}
+                                                </div>
+                                            {% endif %}
+                                        {% endif %}
+                                        <h5 class="news-list__item-title">{{ post.title }}</h5>
+                                    </a>
+                                </article>
+                            {% endfor %}
+                            <div class="news-list__item news__item--placeholder"></div>
+                            <div class="news-list__item news__item--placeholder"></div>
+                        </div>
+                        {% include 'partials/pagination.twig' with { pagination: posts.pagination({ show_all: false, mid_size: 3, end_size: 2 }) } %}
+                    </div>
+                </section>
+            </div>
+        </div>
+    </article>
+{% endblock %}

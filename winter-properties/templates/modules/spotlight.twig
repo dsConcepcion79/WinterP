@@ -1,0 +1,73 @@
+<section class="spotlight">
+    <div class="spotlight__inner">
+        <div class="spotlight__content">
+            <header class="spotlight__header">
+                {% if module.eyebrow %}
+                    <div class="spotlight__eyebrow">{{ module.eyebrow }}</div>
+                {% endif %}
+                <h3 class="spotlight__heading">{{ module.heading }}</h3>
+            </header>
+        </div>
+        <div class="spotlight__slides" id="spotlight-slides" aria-live="polite">
+            <div class="spotlight__slides-wrapper">
+                {% if module.items|length %}
+                    {% for item in module.items %}
+                        <figure class="spotlight__slide">
+                            <a class="spotlight__slide-link spotlight__slide-content" href="{{ item.post.path }}">
+                                <div class="spotlight__slide-image">
+                                    <img
+                                        class="spotlight__slide-img"
+                                        src="{{ item.post.thumbnail.src('large') }}"
+                                        srcset="{{ item.post.thumbnail.srcset }}"
+                                        alt="{{ item.post.thumbnail.alt }}"
+                                        data-object-fit
+                                    />
+                                </div>
+                                <h3 class="spotlight__slide-title">{{ item.post.title }}</h3>
+                                {% if item.post.categories|length %}
+                                    <div class="spotlight__slide-category">
+                                        {{ item.post.categories[0].name }}
+                                    </div>
+                                {% endif %}
+                            </a>
+                            {% if item.caption %}
+                                <figcaption class="spotlight__slide-caption">
+                                    {{ item.caption }}
+                                </figcaption>
+                            {% endif %}
+                        </figure>
+                    {% endfor %}
+                {% elseif module.gallery|length %}
+                    {% for image in module.gallery %}
+                        <figure class="spotlight__slide">
+                            <div class="spotlight__slide-content">
+                                <div class="spotlight__slide-image">
+                                    <img
+                                        class="spotlight__slide-img"
+                                        src="{{ Image(image).src }}"
+                                        srcset="{{ Image(image).srcset }}"
+                                        alt="{{ Image(image).alt }}"
+                                        data-object-fit
+                                    />
+                                </div>
+                            </div>
+                            {% if Image(image).caption %}
+                                <figcaption class="spotlight__slide-caption">
+                                    {{ Image(image).caption }}
+                                </figcaption>
+                            {% endif %}
+                        </figure>
+                    {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="spotlight__nav" aria-controls="spotlight-slides">
+        <button class="spotlight__nav-btn spotlight__prev">
+            <span class="visually-hidden">Previous Slide</span>
+        </button>
+        <button class="spotlight__nav-btn spotlight__next">
+            <span class="visually-hidden">Next Slide</span>
+        </button>
+    </div>
+</section>

@@ -1,0 +1,33 @@
+<section class="info-stack info-stack--{{ module.type }}">
+    <div class="info-stack__inner">
+        {% if module.eyebrow or module.heading%}
+            <header class="info-stack__header">
+                {% if module.eyebrow %}
+                    <div class="info-stack__eyebrow">{{ module.eyebrow }}</div>
+                {% endif %}
+                {% if module.heading %}
+                    <div class="info-stack__heading">{{ module.heading }}</div>
+                {% endif %}
+            </header>
+        {% endif %}
+        <div class="info-stack__items {{ module.heading ? 'info-stack__items--with-heading' : '' }}">
+            {% for item in module.items %}
+                <article class="info-stack__item">
+                    <div class="info-stack__image">
+                        <img
+                            class="info-stack__img"
+                            src="{{ Image(item.image).src('large') }}"
+                            srcset="{{ Image(item.image).srcset }}"
+                            alt="{{ Image(item.image).alt }}"
+                            data-object-fit
+                        />
+                    </div>
+                    <div class="info-stack__details">
+                        <h4 class="info-stack__title">{{ item.heading }}</h4>
+                        <div class="info-stack__body">{{ item.body }}</div>
+                    </div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

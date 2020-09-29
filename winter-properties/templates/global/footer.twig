@@ -1,0 +1,32 @@
+<footer class="global-footer" role="contentinfo">
+    <div class="global-footer__inner">
+        <div class="global-footer__menu">
+            {% include 'partials/menu.twig' with { 'menu': menu_footer.get_items } %}
+        </div>
+
+        <div class="global-footer__locations">
+            <ul class="global-footer__list" role="presentation">
+                {% for location in theme_settings.locations %}
+                    <li class="global-footer__list-item">
+                        <span class="global-footer__heading">{{ location.heading }}</span>
+                        <div class="global-footer__body">
+                            {{ location.body }}
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="global-footer__copyright">
+            {% include 'partials/menu.twig' with { 'menu': menu_copyright.get_items } %}
+
+            <div class="global-footer__body">
+                {{ theme_settings.copyright }}
+            </div>
+
+            {% include 'partials/social.twig' with { 'socials': theme_settings.social_links } %}
+        </div>
+    </div>
+</footer>
+
+{{ function('wp_footer') }}

@@ -1,0 +1,22 @@
+{% if menu %}
+    <div class="subnav">
+        <ul class="menu__list" role="presentation">
+            {% for item in menu %}
+                {% set current_class = post and post.categories[0].name == item.title ? 'current-menu-parent' : '' %}
+                <li class="menu__list-item {{ item.classes|join(' ') }} {{ current_class }}">
+                    {% if item.link == '#' %}
+                        <span class="menu__link">{{ item.title }}</span>
+                    {% else %}
+                        <a
+                            class="menu__link"
+                            href="{{ item.link }}"
+                            target="{{ item.target ? item.target : '_self' }}"
+                        >
+                            {{ item.title }}
+                        </a>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}

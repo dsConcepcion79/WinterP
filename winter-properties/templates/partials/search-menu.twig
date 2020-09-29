@@ -1,0 +1,29 @@
+{% extends 'partials/modal.twig' %}
+
+{% block modal_close_title %}Close Search{% endblock %}
+
+{% block modal_open_title %}Open Search{% endblock %}
+
+{% block modal_header %}
+    <a class="global-header__link" href="{{ site.url }}" rel="home">
+        <span class="visually-hidden">{{ site.name }}</span>
+    </a>
+{% endblock %}
+
+{% block modal_content %}
+    <div class="global-search__inner">
+        <form
+            class="global-search__form"
+            id="searchform"
+            method="get"
+            action="{{ site.url }}"
+            role="search"
+        >
+            <h5 class="global-search__label">Enter a keyword to start searching</h5>
+            <div class="global-search__fieldset">
+                <input class="global-search__input" id="s" type="text" name="s" placeholder="Search" />
+                <input class="global-search__submit" id="searchsubmit" type="submit" value="Search" />
+            </div>
+        </form>
+    </div>
+{% endblock %}

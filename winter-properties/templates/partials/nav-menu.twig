@@ -1,0 +1,81 @@
+{% extends 'partials/modal.twig' %}
+
+{% block modal_close_title %}Close Menu{% endblock %}
+
+{% block modal_open_title %}Open Menu{% endblock %}
+
+{% block modal_header %}
+    <a class="global-header__link" href="{{ site.url }}" rel="home">
+        <span class="visually-hidden">{{ site.name }}</span>
+    </a>
+{% endblock %}
+
+{% block modal_content %}
+    {% if menu %}
+        <ul class="menu__list" role="presentation">
+            {% for item in menu %}
+                {% set trigger_id = 'nav-trigger-'~loop.index %}
+                {% set panel_id = 'nav-panel-'~loop.index %}
+
+                <li class="menu__list-item {{ item.classes|join(' ') }}">
+                    {% if item.link == '#' and item.get_children|length %}
+                        <a
+                            class="menu__link menu__trigger"
+                            href="{{ item.link }}"
+                            id="{{ trigger_id }}"
+                            aria-controls="{{ panel_id }}"
+                            aria-expanded="false"
+                        >
+                            {{ item.title }}
+                        </a>
+                    {% else %}
+                        <a
+                            class="menu__link"
+                            href="{{ item.link }}"
+                            target="{{ item.target ? item.target : '_self' }}"
+                        >
+                            {{ item.title }}
+                        </a>
+                    {% endif %}
+
+                    {% if item.get_children %}
+                        <div
+                            class="sub-menu"
+                            id="{{ panel_id }}"
+                            aria-labelledby="{{ trigger_id }}"
+                        >
+                            <div class="sub-menu__inner">
+                                <ul class="sub-menu__list" role="presentation">
+                                    {% for sub_item in item.get_children %}
+                                        <li class="sub-menu__list-item  {{ sub_item.image ? '' : 'sub-menu__list-item--no-image' }} {{ sub_item.classes|join(' ') }}">
+                                            <a
+                                                class="sub-menu__list-item-link"
+                                                href="{{ sub_item.link }}"
+                                                target="{{ sub_item.target ? sub_item.target : '_self' }}"
+                                            >
+                                                {% if sub_item.image %}
+                                                    <div class="sub-menu__list-item-image">
+                                                        <img
+                                                            class="sub-menu__list-item-img"
+
+                                                            src="{{ Image(sub_item.image).src('large') }}"
+                                                            srcset="{{ Image(sub_item.image).srcset }}"
+                                                            alt="{{ Image(sub_item.image).alt }}"
+                                                        />
+                                                    </div>
+                                                {% endif %}
+                                                <h5 class="sub-menu__list-item-title">{{ sub_item.title }}</h5>
+                                            </a>
+                                        </li>
+                                    {% endfor %}
+                                    <li class="sub-menu__list-item sub-menu__list-item--placeholder"></li>
+                                    <li class="sub-menu__list-item sub-menu__list-item--placeholder"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

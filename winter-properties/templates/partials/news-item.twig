@@ -1,0 +1,29 @@
+{% if item %}
+    <article class="{{ type }}__item {{ item.thumbnail ? '' : type~'__item--no-image' }}">
+        <a class="{{ type }}__item-link" href="{{ item.path }}">
+            {% if item.thumbnail %}
+                <div class="{{ type }}__item-image">
+                    <img
+                        class="{{ type }}__item-img"
+                        src="{{ item.thumbnail.src('large') }}"
+                        srcset="{{ item.thumbnail.srcset }}"
+                        alt="{{ item.thumbnail.alt }}"
+                        data-object-fit
+                    />
+                    {% if item.categories|length %}
+                        <div class="{{ type }}__item-category {{ type }}__item-category--absolute">
+                            {{ item.categories[0].name }}
+                        </div>
+                    {% endif %}
+                </div>
+            {% else %}
+                {% if item.categories|length %}
+                    <div class="{{ type }}__item-category">
+                        {{ item.categories[0].name }}
+                    </div>
+                {% endif %}
+            {% endif %}
+            <h5 class="{{ type }}__item-title">{{ item.title }}</h5>
+        </a>
+    </article>
+{% endif %}

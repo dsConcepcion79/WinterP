@@ -1,0 +1,118 @@
+/*
+ * Base
+ * ======================================================================== */
+
+body {
+  @include body-2;
+
+  background: $white;
+  color: $black;
+  font-family: $family-sohne;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-weight: $weight-regular;
+  height: 100%;
+}
+
+/*
+ * Type
+ * ======================================================================== */
+
+a {
+  color: $black;
+  text-decoration: underline;
+  transition: color 100ms linear;
+}
+
+a:active,
+a:visited {
+  color: $black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: $red;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-bottom: 16px;
+  margin-top: 0;
+
+  @include large-and-up {
+    margin-bottom: 24px;
+  }
+}
+
+h1 {
+  @include heading-1;
+}
+
+h2 {
+  @include heading-2;
+}
+
+h3 {
+  @include heading-3;
+}
+
+h4 {
+  @include heading-4;
+}
+
+h5 {
+  @include heading-5;
+}
+
+h6 {
+  @include heading-6;
+}
+
+p {
+  @include body-2;
+
+  margin-bottom: 1em;
+}
+
+strong {
+  color: $red;
+  font-weight: $weight-regular;
+}
+
+button {
+  transition: color 100ms linear;
+}
+
+/*
+ * Layout
+ * ======================================================================== */
+
+main {
+  flex: 1 0 auto;
+  z-index: 1;
+}
+
+.page__content {
+  section {
+    &:nth-child(odd) {
+      background-color: $white;
+    }
+
+    &:nth-child(even) {
+      background-color: $off-white;
+    }
+  }
+}
+
+figure {
+  margin: 0;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.visually-hidden {
+  @include visually-hidden;
+}
