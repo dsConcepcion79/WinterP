@@ -1,0 +1,20 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <h1 class="visually-hidden" id="title">{{ post.title }}</h1>
+
+    <article class="page page--error">
+        <div class="page__body">
+            <div class="page__content">
+                <section class="intro">
+                    <div class="intro__inner">
+                        <div class="intro__content">
+                            <h3 class="intro__title">Page not found</h3>
+                            <div class="intro__body">Sorry, we couldn't find what you're looking for.</div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </article>
+{% endblock %}

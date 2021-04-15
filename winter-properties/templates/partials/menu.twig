@@ -1,0 +1,20 @@
+{% if menu %}
+    <ul class="menu__list" role="presentation">
+        {% for item in menu %}
+            <li class="menu__list-item {{ item.classes|join(' ') }}">
+                {% if item.link == '#' %}
+                    <span class="menu__link">{{ item.title }}</span>
+                {% else %}
+                    <a
+                        class="menu__link"
+                        href="{{ item.link }}"
+                        target="{{ item.target ? item.target : '_self' }}"
+                    >
+                        {{ item.title }}
+                    </a>
+                {% endif %}
+                {% include 'partials/menu.twig' with { 'menu': item.get_children } %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endif %}

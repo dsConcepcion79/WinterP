@@ -1,0 +1,65 @@
+/*
+ * Modal Component
+ * ======================================================================== */
+
+.modal {
+  display: flex;
+
+  &__inner {
+    background-color: $white;
+    height: 100vh;
+    left: 0;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100vw;
+    z-index: 2;
+
+    &--open {
+      visibility: visible;
+    }
+  }
+
+  &__header {
+    align-items: center;
+    display: flex;
+    flex-direction: row-reverse;
+    height: $header-height-sm;
+    justify-content: space-between;
+    padding: 0 $site-margin-sm;
+
+    @include large-and-up {
+      height: $header-height-lg;
+    }
+  }
+
+  &__close {
+    @include btn-reset;
+
+    background-image: url('../svgs/close-black.svg');
+    background-size: 14px 14px;
+    height: 24px;
+    width: 24px;
+  }
+
+  &__focus-start,
+  &__focus-end {
+    opacity: 0;
+  }
+
+  &--dark {
+    .modal__inner {
+      background-color: $black;
+    }
+
+    .modal__close {
+      background-image: url('../svgs/close-white.svg');
+    }
+  }
+
+  &--open {
+    overflow: hidden;
+  }
+}

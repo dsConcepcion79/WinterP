@@ -1,0 +1,139 @@
+strong {
+    font-weight: 600 !important;
+}
+
+.global-header__link {
+    width: 120px !important;
+    min-height: 30px !important;
+    background-size: contain !important;
+}
+
+.body--inverted:not(.body--pinned) .global-header__link {
+    background-size: contain !important;
+    width: 120px !important;
+    min-height: 30px !important;
+}
+.body--inverted:not(.body--pinned) .global-header__link {
+    background-size: contain !important;
+    width: 120px !important;
+	min-height: 30px !important;
+}
+
+/*
+*
+** Investment section start
+*
+*/
+
+.inv_logo_area {
+    text-align: center;
+}
+.inv_content_top {
+    padding-top: 30px;
+    padding-bottom: 40px;
+}
+.inv_heading {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.inv_flex_row {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    justify-content: center;
+	flex-wrap: wrap;
+}
+.inv_str_cotnent_column {
+    min-width: 33%;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.inv_title h1,
+.inv_title h2,
+.inv_title h3,
+.inv_title h4,
+.inv_title h5,
+.inv_title h6{
+	margin-bottom:0px;
+}
+.inv_logo_area a {
+    display: inline-block;
+}
+.inv_logo_area img {
+    max-height: 100%;
+    width: auto;
+    max-width: 100%;
+}
+.inv_desc {
+    padding: 20px 50px;
+}
+/*
+*
+** Investment section end
+*
+*/
+
+.team-list__items.gallery_grid {
+    justify-content: center;
+}
+article.team-list__item {
+    margin: 0 10px;
+}
+
+.inv_heading header {
+    background: #000;
+}
+.inv_heading h1 {
+    margin-bottom: 0;
+}
+.inv_heading {
+    background: #000;
+    position: relative;
+    width: 100vw;
+    left: -50vw;
+    margin-left: 50%;
+    padding: 30px 15px;
+}
+.inv_heading_text {
+    max-width: 1120px;
+    margin: 0 auto;
+}
+.inv_heading h1, .inv_heading h2, .inv_heading h3, .inv_heading h4, .inv_heading h5, .inv_heading h6, .inv_heading p, .inv_heading pre{
+	    margin-bottom: 0px;
+	
+}
+.hover_strong strong {
+    display: block;
+}
+.team-list__items.gallery_grid strong {
+    color: unset;
+    font-weight: 600 !important;
+}
+
+@media (min-width: 1025px){
+.inv_heading h1, .inv_heading h2, .inv_heading h3, .inv_heading h4, .inv_heading h5, .inv_heading h6, .inv_heading p, .inv_heading pre{
+	    margin-bottom: 0px;
+	
+}	
+}
+
+
+.gallery_grid_desc h1, .gallery_grid_desc h2, .gallery_grid_desc h3, .gallery_grid_desc h4, .gallery_grid_desc h5, .gallery_grid_desc h6, .gallery_grid_desc p, .gallery_grid_desc pre{
+	    margin-bottom: 0px;
+	
+}
+
+
+
+
+
+@media only screen and (max-width:767px){
+
+}

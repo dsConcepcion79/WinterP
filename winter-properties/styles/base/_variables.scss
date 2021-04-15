@@ -1,0 +1,61 @@
+/*
+ * Colors
+ * ======================================================================== */
+
+$black: #000;
+$white: #FFF;
+$red: #ED2A37;
+$dark-red: #7E1D24;
+$gray: #91999F;
+$line-gray: #DEE0E2;
+$body-gray: #666;
+$off-white: #F7F7F7;
+
+$black-20: rgba(0, 0, 0, 0.2);
+$black-60: rgba(0, 0, 0, 0.6);
+$black-grad-40: linear-gradient(30deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 75%);
+$black-grad-80: linear-gradient(30deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 100%);
+$white-20: rgba(255, 255, 255, 0.2);
+
+/*
+ * Typography
+ * ======================================================================== */
+
+$family-rajdhani: 'Rajdhani', sans-serif;
+$family-sohne: 'Sohne', sans-serif;
+$weight-bold: bold;
+$weight-regular: normal;
+
+/*
+ * Media Queries
+ * ======================================================================== */
+
+$extra-small-max-width: 320px;
+$small-max-width: 767px;
+$medium-min-width: 768px;
+$medium-max-width: 1024px;
+$large-min-width: 1025px;
+$large-max-width: 1440px;
+$extra-large-min-width: 1441px;
+
+$site-min-height: 568px;
+
+/*
+ * Layout
+ * ======================================================================== */
+
+$site-margin-sm: 28px;
+$site-margin-lg: 88px;
+
+$inner-margin-sm: 0;
+$inner-margin-lg: 72px;
+
+$header-height-sm: 64px;
+$header-height-lg: 80px;
+
+$max-width-article: 264px;
+$max-width-content: 688px;
+$max-width-hero: 768px;
+$max-width-slide: 976px;
+$max-width-inner: 1120px;
+$max-width-full: 1264px;

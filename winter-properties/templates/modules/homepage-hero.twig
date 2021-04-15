@@ -1,0 +1,79 @@
+<section class="homepage-hero">
+    <div class="homepage-hero__inner">
+        <div class="homepage-hero__content">
+            <div class="homepage-hero__content-inner">
+                <header class="homepage-hero__header">
+                    <h1 class="homepage-hero__heading">{{ module.heading }}</h1>
+                    {% if module.body %}
+                        <div class="homepage-hero__body">{{ module.body }}</div>
+                    {% endif %}
+                    {% if module.button_link %}
+                        <a
+                            class="homepage-hero__btn"
+                            href="{{ module.button_link.url }}"
+                            target="{{ module.button_link.target ? module.button_link.target : '_self' }}"
+                        >
+                            <span class="homepage-hero__btn-label">{{ module.button_link.title }}</span>
+                        </a>
+                    {% endif %}
+                </header>
+            </div>
+        </div>
+        <div class="homepage-hero__slides" id="homepage-hero-slides" aria-live="polite">
+            <div class="homepage-hero__slides-wrapper">
+                    <div class="homepage-hero__slide">
+                        <div class="homepage-hero__slide-image homepage-hero__slide-image--top">
+                            <img
+                                class="homepage-hero__slide-img"
+                                src="{{ Image(module.home_background_image).src('header_large') }}"
+                                srcset="{{ Image(module.home_background_image).srcset }}"
+                                alt="{{ Image(module.home_background_image).alt }}"
+                            />
+                        </div>
+
+                        <div class="homepage-hero__slide-image homepage-hero__slide-image--mid">
+                            <img
+                                class="homepage-hero__slide-img"
+                                src="{{ Image(module.home_background_image).src('header_large') }}"
+                                srcset="{{ Image(module.home_background_image).srcset }}"
+                                alt="{{ Image(module.home_background_image).alt }}"
+                            />
+                        </div>
+
+                        <div class="homepage-hero__slide-image homepage-hero__slide-image--btm">
+                            <img
+                                class="homepage-hero__slide-img"
+                                src="{{ Image(module.home_background_image).src('header_large') }}"
+                                srcset="{{ Image(module.home_background_image).srcset }}"
+                                alt="{{ Image(module.home_background_image).alt }}"
+                            />
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="homepage-hero__cards" aria-live="polite">
+            <div class="homepage-hero__timer">
+                <div class="homepage-hero__timer-bar"></div>
+            </div>
+            {% for item in module.items %}
+                <div
+                    class="homepage-hero__card"
+                    style="transform: translateX(-{{ loop.index0 * 100 }}%)"
+                >
+                    <div class="homepage-hero__card-category">
+                        {{ item.post.categories[0].name }}
+                    </div>
+                    <a class="homepage-hero__card-link" href="{{ item.post.path }}">{{ item.post.title }}</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="homepage-hero__nav" aria-controls="homepage-hero-slides">
+            <button class="homepage-hero__nav-btn homepage-hero__prev">
+                <span class="visually-hidden">Previous Slide</span>
+            </button>
+            <button class="homepage-hero__nav-btn homepage-hero__next">
+                <span class="visually-hidden">Next Slide</span>
+            </button>
+        </div>
+    </div>
+</section>

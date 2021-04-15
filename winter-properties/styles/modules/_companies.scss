@@ -1,0 +1,83 @@
+/*
+ * Companies Module
+ * ======================================================================== */
+
+.companies {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+
+    @include medium-and-up {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__header {
+    @include section-header;
+
+    @include medium-and-up {
+      margin-bottom: 0;
+      width: 50%;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__heading {
+    margin-bottom: 32px;
+
+    @include large-and-up {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__btn {
+    @include btn-arrow;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    @include medium-and-up {
+      width: 42%;
+    }
+  }
+
+  &__list-item {
+    margin-bottom: 32px;
+    width: 21%;
+
+    &:nth-last-child(-n + 6) {
+      margin-bottom: 0;
+    }
+
+    &--placeholder {
+      visibility: hidden;
+    }
+  }
+
+  &__link {
+    display: block;
+  }
+
+  &__image {
+    @include image-wrapper;
+
+    padding-bottom: 100%;
+    width: 100%;
+  }
+
+  &__img {
+    @include image;
+  }
+}

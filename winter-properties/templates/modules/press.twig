@@ -1,0 +1,42 @@
+<section class="press">
+    <div class="press__inner">
+        <div class="press__eyebrow">{{ module.eyebrow }}</div>
+
+        <div class="press__slides" id="press-slides" aria-live="polite">
+            {% for item in module.items %}
+                <article
+                    class="press__slide"
+                    style="transform: translateX(-{{ loop.index0 * 100 }}%)"
+                >
+                    <div class="press__quote">{{ item.quote }}</div>
+                    <a
+                        class="press__link"
+                        href="{{ item.link.url }}"
+                        target="{{ item.link.target ? item.link.target : '_self' }}"
+                    >
+                        {{ item.link.title }}
+                    </a>
+                </article>
+            {% endfor %}
+        </div>
+
+        <div class="press__nav">
+            {% for item in module.items %}
+                <div class="press__nav-item">
+                    <div class="press__nav-btn">
+                        <div class="press__image">
+                            <img
+                                class="press__img"
+                                src="{{ Image(item.logo).src('large') }}"
+                                srcset="{{ Image(item.logo).srcset }}"
+                                alt="{{ Image(item.logo).alt }}"
+                                data-object-fit="contain"
+                            />
+                        </div>
+                        <span class="visually-hidden">{{ item.name }}</span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>

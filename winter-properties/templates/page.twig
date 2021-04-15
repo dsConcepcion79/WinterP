@@ -1,0 +1,29 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <h1 class="visually-hidden" id="title">{{ post.title }}</h1>
+
+    <article class="page page--{{ post.post_type }}" id="page-{{ post.ID }}">
+        <div class="page__body">
+            <div class="page__content">
+                {% for module in post.get_field('content_modules') %}
+                    {% include 'modules/'~module.acf_fc_layout~'.twig' with { 'module': module } %}
+                    
+                {% endfor %}
+                
+ 			{% if fn('is_page', 'cookie-policy') %}
+            <div id="ot-sdk-cookie-policy"></div>
+            <!-- Add more start-->
+            
+            
+            
+            <!-- Add more end-->
+            {% endif %}
+            
+            </div>
+           
+        </div>
+    </article>
+
+
+{% endblock %}

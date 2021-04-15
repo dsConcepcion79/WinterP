@@ -1,0 +1,191 @@
+/*
+ * Spotlight Module
+ * ======================================================================== */
+
+.spotlight {
+  @include section;
+
+  background-color: $black !important;
+  color: $white;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__content {
+    margin-bottom: 48px;
+
+    @include large-and-up {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 120px;
+    }
+  }
+
+  &__header {
+    @include section-header;
+
+    margin-bottom: 24px;
+
+    @include large-and-up {
+      margin-bottom: 0;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__slides-wrapper {
+    align-items: flex-start;
+    display: flex;
+    justify-content: flex-start;
+    transition: transform 400ms ease-out;
+  }
+
+  &__slide {
+    margin-right: 16px;
+    width: 100%;
+
+    @include medium-and-up {
+      margin-right: 0;
+    }
+
+    a.spotlight__slide-link {
+      color: white;
+    }
+
+    &-content {
+      background-color: $white-20;
+      display: block;
+      opacity: 0.5;
+      padding-bottom: 64%;
+      position: relative;
+      transition: transform 400ms ease-out, opacity 400ms linear;
+      width: 100%;
+
+      @include medium-and-up {
+        transform: scale(0.9);
+      }
+
+      .spotlight__slide--active & {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    &-link {
+      overflow: hidden;
+
+      &:hover {
+        .spotlight__slide-img {
+          transform: scale(1);
+        }
+      }
+
+      .spotlight__slide-image {
+        &::after {
+          @include lowlight-grad-40;
+        }
+      }
+
+      .spotlight__slide-img {
+        transform: scale(1.2);
+      }
+    }
+
+    &-title {
+      @include heading-3;
+      @include arrow-link-white;
+
+      bottom: 16px;
+      left: 16px;
+      margin: 0;
+      max-width: 50%;
+      position: absolute;
+      word-break: normal;
+
+      &::after {
+        display: block;
+        height: 0;
+        transition: height 150ms ease-out, opacity 150ms linear;
+      }
+
+      @include medium-and-up {
+        @include heading-2;
+
+        bottom: 40px;
+        left: 40px;
+      }
+    }
+
+    &-category {
+      @include label;
+
+      left: 0;
+      position: absolute;
+      top: 0;
+    }
+
+    &-image {
+      @include image-wrapper;
+      @include bg-image;
+    }
+
+    &-img {
+      @include image;
+
+      transition: transform 150ms ease-out;
+    }
+
+    &-caption {
+      @include clear-last-child;
+
+      margin-top: 24px;
+      opacity: 0;
+      transition: opacity 400ms linear;
+
+      p {
+        @include body-2;
+      }
+
+      .spotlight__slide--active & {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__nav {
+    bottom: 0;
+    display: flex;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    width: 80px;
+
+    &-btn {
+      @include btn-reset;
+
+      background-color: $red;
+      background-position: center center;
+      background-size: 6px 10px;
+      height: 40px;
+      transition: opacity 100ms linear;
+      width: 40px;
+
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+  }
+
+  &__prev {
+    background-color: $dark-red;
+    background-image: url('../svgs/prev.svg');
+  }
+
+  &__next {
+    background-image: url('../svgs/next.svg');
+  }
+}

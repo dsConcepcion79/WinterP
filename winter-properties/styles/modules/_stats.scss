@@ -1,0 +1,95 @@
+/*
+ * Stats Module
+ * ======================================================================== */
+
+.stats {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__header {
+    @include section-header;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    @include large-and-up {
+      justify-content: flex-end;
+    }
+
+    &--even {
+      @include large-and-up {
+        justify-content: space-between;
+      }
+
+      .stats__list-item {
+        @include large-and-up {
+          margin: 0 9% 48px 0;
+          width: 16%;
+
+          &:nth-last-child(-n + 4) {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .stats__value {
+        @include stat-2;
+      }
+    }
+  }
+
+  &__list-item {
+    margin-bottom: 32px;
+    width: 48%;
+
+    @include large-and-up {
+      margin: 0 0 48px 9%;
+      width: 23%;
+
+      &:nth-last-child(-n + 3) {
+        margin-bottom: 0;
+      }
+    }
+
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__value {
+    @include stat-1;
+
+    display: block;
+    margin-bottom: 8px;
+    white-space: nowrap;
+
+    @include large-and-up {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__unit {
+    @include heading-6;
+
+    color: $gray;
+    display: block;
+  }
+
+  &--dark {
+    background-color: $black !important;
+    color: $white;
+  }
+}

@@ -1,0 +1,246 @@
+/*
+ * Topic Module
+ * ======================================================================== */
+
+.topic {
+  position: relative;
+
+  @include large-and-up {
+    display: flex;
+  }
+
+  &__inner {
+    @include section-inner;
+
+    @include large-and-up {
+      margin: 0;
+      max-width: 560px;
+    }
+  }
+
+  &__left,
+  &__right {
+    @include section;
+
+    position: relative;
+
+    @include large-and-up {
+      width: 50%;
+    }
+  }
+
+  &__left {
+    @include large-and-up {
+      align-items: flex-end;
+      padding-right: 0;
+
+      .topic__inner {
+        padding-right: 72px;
+      }
+    }
+  }
+
+  &__right {
+    min-height: 350px;
+
+    @include large-and-up {
+      align-items: flex-start;
+      padding-left: 0;
+
+      .topic__inner {
+        padding-left: 144px;
+      }
+    }
+  }
+
+  &__header {
+    @include section-header;
+
+    margin-bottom: 0;
+
+    @include large-and-up {
+      margin-bottom: 0;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__heading {
+    margin-bottom: 32px;
+  }
+
+  &__btn {
+    @include btn-arrow;
+  }
+
+  &__social {
+    align-items: center;
+    display: flex;
+    margin-top: 32px;
+
+    @include large-and-up {
+      margin-top: 48px;
+    }
+
+    &::before {
+      background-position: center center;
+      content: '';
+      display: block;
+      height: 32px;
+      margin-right: 8px;
+      width: 32px;
+    }
+
+    &--facebook::before {
+      background-image: url('../svgs/facebook-black.svg');
+      background-size: 8px 16px;
+    }
+
+    &--instagram::before {
+      background-image: url('../svgs/instagram-black.svg');
+      background-size: 16px 16px;
+    }
+
+    &--linkedin::before {
+      background-image: url('../svgs/linkedin-black.svg');
+      background-size: 16px 16px;
+    }
+
+    &--twitter::before {
+      background-image: url('../svgs/twitter-black.svg');
+      background-size: 16px 12px;
+    }
+  }
+
+  &__social-link {
+    @include cta-link;
+  }
+
+  &__image {
+    @include image-wrapper;
+    @include bg-image;
+
+    &::after {
+      @include lowlight-grad-80;
+    }
+  }
+
+  &__img {
+    @include image;
+    @include animation-soft-zoom;
+  }
+
+  &__video {
+    @include image;
+
+    &--top {
+      object-position: 50% 0;
+    }
+
+    &--bottom {
+      object-position: 50% 100%;
+    }
+  }
+
+  &__item {
+    @include news-item-inverted;
+
+    max-width: $max-width-article;
+
+    &:nth-child(1) {
+      padding-bottom: 32px;
+
+      @include large-and-up {
+        padding-bottom: 48px;
+      }
+    }
+
+    &:nth-child(2) {
+      padding-top: 32px;
+      position: relative;
+
+      @include large-and-up {
+        padding-top: 48px;
+      }
+
+      &::before {
+        background-color: $white;
+        content: '';
+        height: 1px;
+        opacity: 0.3;
+        position: absolute;
+        top: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  &--full-image {
+    color: $white;
+
+    .topic__btn {
+      @include btn-arrow-inverted;
+    }
+
+    .topic__social {
+      &--facebook::before {
+        background-image: url('../svgs/facebook-white.svg');
+      }
+
+      &--instagram::before {
+        background-image: url('../svgs/instagram-white.svg');
+      }
+
+      &--linkedin::before {
+        background-image: url('../svgs/linkedin-white.svg');
+      }
+
+      &--twitter::before {
+        background-image: url('../svgs/twitter-white.svg');
+      }
+    }
+
+    .topic__social-link {
+      color: $white !important;
+    }
+
+    .topic__eyebrow {
+      color: $white;
+    }
+  }
+
+  &--half-image {
+    .topic__image {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  &--without-items {
+    .topic__left {
+      padding-bottom: 120px;
+      padding-top: 120px;
+
+      @include large-and-up {
+        overflow: visible;
+      }
+    }
+
+    .topic__header {
+      margin: 24px 0;
+
+      @include large-and-up {
+        margin: 60px 0;
+      }
+    }
+
+    .topic__heading {
+      @include large-and-up {
+        max-width: $max-width-hero;
+        width: 150%;
+      }
+    }
+  }
+}

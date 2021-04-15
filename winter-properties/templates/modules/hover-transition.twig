@@ -1,0 +1,38 @@
+<section class="intro hover_transition">
+	{% if module.sec_title %}
+        <div class="hover_section_title">
+			<h3>{{ module.sec_title }}</h3>
+        </div>
+    {% endif %}
+	<div class="gird_area">
+	{% if module.transition_items|length %}
+	{% for transition_item in module.transition_items %}
+		<div class="grid_single">
+			<div class="grid_image {{ transition_item.img_type }}">
+				<img src="{{ Image(transition_item.hover_image).src('large') }}" alt="" />
+			</div>
+			
+				<div class="grid_caption">
+					<div class="caption_element hover_strong">
+						{% if transition_item.web_link %}
+							<a href="{{ transition_item.web_link }}" target="_blank">{{ transition_item.hover_heading }}</a>
+						{% else %}
+							<a href="{{ transition_item.link_post.path }}" target="_blank">{{ transition_item.hover_heading }}</a>
+						{% endif %}	
+                            
+						<p>{{ transition_item.hover_description }}</p>
+						<div class="arrow_right">
+							{% if transition_item.web_link %}
+								<a href="{{ transition_item.web_link }}" target="{{ transition_item.link_target }}">&#8594;</a>
+							{% else %}
+								<a href="{{ transition_item.link_post.path }}" target="{{ transition_item.link_target }}">&#8594;</a>
+							{% endif %}	
+							
+						</div>
+					</div>
+				</div>
+		</div>
+	{% endfor %}
+	{% endif %}	
+	</div>
+</section>

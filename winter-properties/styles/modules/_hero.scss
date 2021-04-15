@@ -1,0 +1,67 @@
+/*
+ * Hero Module
+ * ======================================================================== */
+
+.hero {
+  @include section;
+
+  background-color: $black !important;
+  color: $white;
+  padding: 72px $site-margin-sm;
+
+  &__image {
+    @include image-wrapper;
+    @include bg-image;
+
+    &::after {
+      @include lowlight-grad-80;
+    }
+  }
+
+  &__logo {
+    bottom: 0;
+    padding-bottom: 96px;
+    position: absolute;
+    right: 0;
+    width: 96px;
+
+    @include medium-and-up {
+      padding-bottom: 12%;
+      width: 12%;
+    }
+
+    @include extra-large-only {
+      padding-bottom: 160px;
+      width: 160px;
+    }
+  }
+
+  &__img {
+    @include image;
+    @include animation-fade-in;
+  }
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__content {
+    @include clear-last-child;
+
+    max-width: $max-width-hero;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+
+    color: $white;
+  }
+
+  &__body {
+    @include clear-last-child;
+
+    p {
+      @include heading-6;
+    }
+  }
+}

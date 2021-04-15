@@ -1,0 +1,55 @@
+<section class="investment_snapshot intro intro--investment">
+    <div class="intro__inner">
+        <div class="inv_logo_area">
+		{% if module.investment_logo.inv_logo|length %}
+			{% if module.investment_logo.link %}
+			<a href="{{ module.investment_logo.link }}" target="{{ module.investment_logo.link_tar }}" class="inv_logo">
+				<img src="{{ Image(module.investment_logo.inv_logo).src('large') }}" alt="" />
+			</a>
+			{% else %}
+				<img src="{{ Image(module.investment_logo.inv_logo).src('large') }}" alt="" />
+			{% endif %}
+		{% endif %}
+		</div>
+		<div class="inv_content_top">
+			<div class="inv_desc">
+				{% if module.investment_description|length %}
+					{{ module.investment_description }}
+				{% endif %}
+			</div>
+		</div>
+		<div class="inv_content_bottom">
+			<div class="inv_heading">
+				<div class="inv_heading_text">
+					{% if module.investment_heading_snapshot|length %}
+						{{ module.investment_heading_snapshot }}
+					{% endif %}
+				</div>
+			</div>
+			<div class="inv_structures_content_row">
+			{% if module.investment_structures %}
+			{% for inv_structure in module.investment_structures %}
+			
+				<div class="inv_flex_row">
+					{% for key, value in inv_structure.single_column_content %}
+					{% if value.title | length%}
+						<div class="inv_str_cotnent_column">
+							<div class="inv_title">
+								{{ value.title }}
+							</div>
+							<div class="inv_subtitle">
+								{{ value.subtitle }}
+							</div>
+						</div>
+					
+					{% endif %}
+					{% endfor %}
+				</div>
+			{% endfor %}
+			{% endif %}
+			</div>
+			
+		</div>
+		
+    </div>
+</section>

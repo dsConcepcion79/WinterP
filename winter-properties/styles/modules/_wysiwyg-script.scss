@@ -1,0 +1,15 @@
+/*
+ * Wysiwyg Module
+ * ======================================================================== */
+
+.wysiwyg {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__content {
+    @include wysiwyg-script;
+  }
+}

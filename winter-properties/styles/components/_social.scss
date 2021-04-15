@@ -1,0 +1,47 @@
+/*
+ * Social Component
+ * ======================================================================== */
+
+.social {
+  &__list {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list-item {
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    background-position: center center;
+    display: block;
+    height: 32px;
+    width: 32px;
+
+    &--facebook {
+      background-image: url('../svgs/facebook-white.svg');
+      background-size: 8px 16px;
+    }
+
+    &--instagram {
+      background-image: url('../svgs/instagram-white.svg');
+      background-size: 16px 16px;
+    }
+
+    &--linkedin {
+      background-image: url('../svgs/linkedin-white.svg');
+      background-size: 16px 16px;
+    }
+
+    &--twitter {
+      background-image: url('../svgs/twitter-white.svg');
+      background-size: 16px 12px;
+    }
+  }
+}

@@ -1,0 +1,90 @@
+/*
+ * Services Module
+ * ======================================================================== */
+
+.services {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__header {
+    @include section-header;
+
+    @include large-and-up {
+      margin-bottom: 96px;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include large-and-up {
+      justify-content: flex-end;
+    }
+
+    &--even {
+      @include large-and-up {
+        justify-content: space-between;
+      }
+
+      .services__item {
+        @include large-and-up {
+          margin-left: 0;
+          width: 23%;
+        }
+      }
+    }
+  }
+
+  &__item {
+    @include animation-soft-ease;
+
+    margin-bottom: 32px;
+    width: 100%;
+
+    @include medium-and-up {
+      width: 31%;
+    }
+
+    @include large-and-up {
+      margin: 0 0 0 3%;
+      width: 27%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    @include image-wrapper;
+
+    margin-bottom: 16px;
+    padding-bottom: 60%;
+    width: 100%;
+  }
+
+  &__img {
+    @include image;
+  }
+
+  &__title {
+    @include heading-4-alt;
+
+    margin-bottom: 16px;
+  }
+
+  &__body {
+    @include clear-last-child;
+
+    color: $body-gray;
+  }
+}

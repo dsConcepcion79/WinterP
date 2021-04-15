@@ -1,0 +1,30 @@
+<section class="team">
+    <div class="team__inner {{ module.items|length < 3 or module.items|length > 4 ? 'team__inner--stacked' : '' }}">
+        <div class="team__header">
+            {% if module.eyebrow %}
+                <div class="team__eyebrow">{{ module.eyebrow }}</div>
+            {% endif %}
+            <h3 class="team__heading">{{ module.heading }}</h3>
+        </div>
+        {% for item in module.items %}
+            <article class="team__item">
+                {% if item.team_member.thumbnail %}
+                    <div class="team__image">
+                        <img
+                            class="team__img"
+                            src="{{ item.team_member.thumbnail.src('large') }}"
+                            srcset="{{ item.team_member.thumbnail.srcset }}"
+                            alt="{{ item.team_member.thumbnail.alt }}"
+                            data-object-fit="cover"
+                            data-object-position="50% 0"
+                        />
+                    </div>
+                {% endif %}
+                <h6 class="team__name">{{ item.team_member.title }}</h6>
+                <div class="team__title">{{ item.team_member.meta('title') }}</div>
+            </article>
+        {% endfor %}
+        <div class="team__item team__item--placeholder"></div>
+        <div class="team__item team__item--placeholder"></div>
+    </div>
+</section>

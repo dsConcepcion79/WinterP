@@ -1,0 +1,27 @@
+<section class="services">
+    <div class="services__inner">
+        <header class="services__header">
+            {% if module.eyebrow %}
+                <div class="services__eyebrow">{{ module.eyebrow }}</div>
+            {% endif %}
+            <h3 class="services__heading">{{ module.heading }}</h3>
+        </header>
+        <div class="services__items services__items--{{ module.items|length is divisible by(4) ? 'even' : 'odd' }}">
+            {% for item in module.items %}
+                <article class="services__item">
+                    <div class="services__image">
+                        <img
+                            class="services__img"
+                            src="{{ Image(item.image).src('large') }}"
+                            srcset="{{ Image(item.image).srcset }}"
+                            alt="{{ Image(item.image).alt }}"
+                            data-object-fit
+                        />
+                    </div>
+                    <h4 class="services__title">{{ item.heading }}</h4>
+                    <div class="services__body">{{ item.body }}</div>
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

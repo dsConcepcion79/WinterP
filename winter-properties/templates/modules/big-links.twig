@@ -1,0 +1,19 @@
+<section class="big-links">
+    <div class="big-links__inner">
+        <header class="big-links__header">
+            {% if module.eyebrow %}
+                <div class="big-links__eyebrow">{{ module.eyebrow }}</div>
+            {% endif %}
+            <h3 class="big-links__heading">{{ module.heading }}</h3>
+        </header>
+        <ul class="big-links__list" role="presentation">
+            {% for item in module.items %}
+                <li class="big-links__list-item">
+                    <a class="big-links__link" href="{{ item.post.path }}">
+                        {{ item.post.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

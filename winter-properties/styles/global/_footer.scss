@@ -1,0 +1,171 @@
+/*
+ * Global Footer
+ * ======================================================================== */
+
+.global-footer {
+  @include section;
+  @include body-3;
+
+  background-color: $black;
+  padding-bottom: 120px;
+
+  @include large-and-up {
+    @include body-2;
+  }
+
+  p {
+    @include body-3;
+
+    @include large-and-up {
+      @include body-2;
+    }
+  }
+
+  &__inner {
+    @include section-inner;
+
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__list,
+  .menu__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    @include large-and-up {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .menu__list {
+      display: block;
+
+      .menu__list-item {
+        margin-bottom: 0;
+        padding: 0;
+        width: auto;
+      }
+    }
+  }
+
+  &__list-item,
+  .menu__list-item {
+    margin-bottom: 24px;
+    padding-right: 48px;
+
+    @include large-and-up {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__heading {
+    color: $white;
+    margin-bottom: 0;
+  }
+
+  &__body {
+    @include clear-last-child;
+
+    color: $gray;
+  }
+
+  &__menu {
+    width: 50%;
+
+    @include large-and-up {
+      width: 60%;
+    }
+
+    .menu__list-item {
+      @include large-and-up {
+        width: 33.33%;
+      }
+    }
+
+    .menu__link {
+      color: $white;
+    }
+
+    a.menu__link {
+      color: $gray;
+      text-decoration: none;
+
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+
+  &__locations {
+    width: 50%;
+
+    @include large-and-up {
+      width: 40%;
+    }
+
+    .global-footer__list-item {
+      @include large-and-up {
+        width: 50%;
+      }
+    }
+  }
+
+  &__copyright {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include large-and-up {
+      align-items: flex-end;
+      width: 100%;
+    }
+
+    .menu__list {
+      margin-bottom: 48px;
+      width: 100%;
+
+      @include large-and-up {
+        margin-bottom: 16px;
+      }
+
+      .menu__list-item {
+        margin-bottom: 0;
+
+        @include large-and-up {
+          padding-right: 16px;
+        }
+      }
+
+      a.menu__link {
+        color: $white;
+        text-decoration: none;
+
+        &:hover {
+          color: $red;
+        }
+      }
+    }
+
+    .global-footer__body {
+      margin-bottom: 48px;
+      width: 100%;
+
+      @include large-and-up {
+        margin-bottom: 0;
+        width: 60%;
+      }
+
+      p {
+        @include body-3;
+      }
+    }
+
+    .social {
+      @include large-and-up {
+        max-width: 40%;
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{% extends 'index.twig' %}
+
+{% block list_header %}
+    <header class="news-list__header">
+        <div class="news-list__eyebrow">Search / Results</div>
+        <h2 class="news-list__title">{{ result_count }} results for &ldquo;{{ search_query }}&rdquo;</h2>
+    </header>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+{% endblock %}

@@ -1,0 +1,65 @@
+/*
+ * Related Articles Module
+ * ======================================================================== */
+
+.related-articles {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__header {
+    @include section-header;
+
+    @include large-and-up {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__heading {
+    @include heading-3;
+
+    margin-bottom: 0;
+
+    @include large-and-up {
+      @include heading-4;
+    }
+  }
+
+  &__items {
+    @include medium-and-up {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    @include news-item;
+    @include animation-soft-ease;
+
+    margin-bottom: 32px;
+
+    @include medium-and-up {
+      margin-bottom: 0;
+      width: 31%;
+    }
+
+    &:nth-last-child(-n + 2) {
+      margin-bottom: 0;
+    }
+
+    &--placeholder {
+      visibility: hidden;
+    }
+  }
+
+  .post__content & {
+    background-color: $off-white;
+  }
+}

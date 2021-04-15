@@ -1,0 +1,56 @@
+<section class="business-links">
+    <div class="business-links__inner">
+        {% if module.eyebrow or module.heading%}
+            <header class="business-links__header">
+                {% if module.eyebrow %}
+                    <div class="business-links__eyebrow">{{ module.eyebrow }}</div>
+                {% endif %}
+                {% if module.heading %}
+                <div class="business-links__heading">{{ module.heading }}</div>
+                {% endif %}
+            </header>
+        {% endif %}
+        <ul class="business-links__list business-links__list-{{ module.items|length }}-up" role="presentation">
+            {% for item in module.items %}
+                <li class="business-links__list-item">
+                    <div class="business-links__image-wrapper">
+                        <a
+                            class="business-links__image-link"
+                            href="{{ item.link.url }}"
+                            target="{{ item.link.target ? item.link.target : '_self' }}"
+                        >
+                            <div class="business-links__image">
+                                <img
+                                    class="business-links__img"
+                                    src="{{ Image(item.image).src('large') }}"
+                                    srcset="{{ Image(item.image).srcset }}"
+                                    alt="{{ Image(item.image).alt }}"
+                                    data-object-fit
+                                />
+                            </div>
+                        </a>
+                        <div class="business-links__logo">
+                            <img
+                                class="business-links__logo-img"
+                                src="{{ Image(item.logo).src('medium') }}"
+                                srcset="{{ Image(item.logo).srcset }}"
+                                alt="{{ Image(item.logo).alt }}"
+                                data-object-fit
+                            />
+                        </div>
+                    </div>
+                    <div class="business-links__body">
+                        {{ item.body }}
+                    </div>
+                    <a
+                        class="business-links__link"
+                        href="{{ item.link.url }}"
+                        target="{{ item.link.target ? item.link.target : '_self' }}"
+                    >
+                        {{ item.link.title }}
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

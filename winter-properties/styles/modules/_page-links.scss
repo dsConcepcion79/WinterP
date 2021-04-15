@@ -1,0 +1,102 @@
+/*
+ * Page Links Module
+ * ======================================================================== */
+
+.page-links {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__header {
+    @include section-header;
+
+    @include large-and-up {
+      margin-bottom: 96px;
+    }
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__items {
+    @include medium-and-up {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    @include animation-soft-ease;
+
+    background-color: $black-20;
+    margin-bottom: 48px;
+    width: 100%;
+
+    @include medium-and-up {
+      margin-bottom: 0;
+      width: 48%;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    color: white !important;
+    display: block;
+    padding-bottom: 64%;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+
+    &:hover {
+      .page-links__img {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__title {
+    @include heading-3;
+    @include arrow-link-white;
+
+    bottom: 16px;
+    left: 16px;
+    margin: 0;
+    max-width: 50%;
+    position: absolute;
+    word-break: normal;
+
+    &::after {
+      height: 0;
+      transition: height 150ms ease-out, opacity 150ms linear;
+    }
+
+    @include large-and-up {
+      @include heading-2;
+
+      bottom: 40px;
+      left: 40px;
+    }
+  }
+
+  &__image {
+    @include image-wrapper;
+    @include bg-image;
+
+    &::after {
+      @include lowlight-grad-40;
+    }
+  }
+
+  &__img {
+    @include image;
+
+    transform: scale(1.2);
+    transition: transform 150ms ease-out;
+  }
+}

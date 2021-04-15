@@ -1,0 +1,13 @@
+<section class="intro intro--{{ module.type }} {{ module.section_class }}">
+    <div class="intro__inner">
+        <div class="intro__content">
+            {% if module.eyebrow %}
+                <div class="intro__eyebrow" style="color:{{ module.eyebrow_text_color }} !important;">{{ module.eyebrow }}</div>
+            {% endif %}
+            <div class="intro__heading" style="color:{{ module.hd_text_color }} !important;">{{ module.heading }}</div>
+            {% if module.body %}
+                <div class="intro__body" style="color:{{ module.bd_text_color }} !important;">{{ module.body }}</div>
+            {% endif %}
+        </div>
+    </div>
+</section>

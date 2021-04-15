@@ -1,0 +1,43 @@
+<section class="careers">
+    <div class="careers__inner">
+        <div class="careers__header">
+            <div class="careers__eyebrow">{{ module.eyebrow }}</div>
+            <h3 class="careers__heading">{{ module.heading }}</h3>
+            {% if module.button_link %}
+                <a
+                    class="careers__btn"
+                    href="{{ module.button_link.url }}"
+                    target="{{ module.button_link.target ? module.button_link.target : '_self' }}"
+                >
+                    <span class="careers__btn-label">{{ module.button_link.title }}</span>
+                </a>
+            {% endif %}
+        </div>
+
+        <ul class="careers__list" role="presentation">
+            {% for item in module.items %}
+                <li class="careers__list-item">
+                    <div class="careers__image-wrapper">
+                        <div class="careers__image">
+                            <img
+                                class="careers__img"
+                                src="{{ Image(item.logo).src('large') }}"
+                                srcset="{{ Image(item.logo).srcset }}"
+                                alt="{{ Image(item.logo).alt }}"
+                                data-object-fit
+                            />
+                        </div>
+                    </div>
+                    <a
+                        class="careers__link"
+                        href="{{ item.link.url }}"
+                        target="{{ item.link.target ? item.link.target : '_self' }}"
+                    >
+                        {{ item.link.title }}
+                    </a>
+                </li>
+            {% endfor %}
+            <li class="careers__list-item careers__list-item--placeholder"></li>
+        </ul>
+    </div>
+</section>

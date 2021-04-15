@@ -1,0 +1,60 @@
+<section class="quote">
+    <div class="quote__inner">
+        {% for item in module.items %}
+            <div class="quote__item">
+                <div class="quote__content">
+                    <div class="quote__body">{{ item.quote }}</div>
+                    <div class="quote__author">
+                        &mdash; {{ item.author }}{% if item.title %}, <span class="quote__author-title">{{ item.title }}</span>{% endif %}
+                    </div>
+                </div>
+                {% if item.post %}
+                    <article class="quote__post {{ item.post.thumbnail ? '' : 'quote__post--no-image' }}">
+                        <a class="quote__post-link" href="{{ item.post.path }}">
+                            {% if item.post.thumbnail %}
+                                <div class="quote__post-image">
+                                    <img
+                                        class="quote__post-img"
+                                        src="{{ item.post.thumbnail.src('large') }}"
+                                        srcset="{{ item.post.thumbnail.srcset }}"
+                                        alt="{{ item.post.thumbnail.alt }}"
+                                        data-object-fit
+                                    />
+                                    <div class="quote__post-category quote__post-category--absolute">
+                                        {{ item.post.categories[0].name }}
+                                    </div>
+                                </div>
+                            {% else %}
+                                <div class="quote__post-category">
+                                    {{ item.post.categories[0].name }}
+                                </div>
+                            {% endif %}
+                            <h5 class="quote__post-title">{{ item.post.title }}</h5>
+                        </a>
+                    </article>
+                {% elseif item.link %}
+                    <article class="quote__post {{ item.image ? '' : 'quote__post--no-image' }}">
+                        <a
+                            class="quote__post-link"
+                            href="{{ item.link.url }}"
+                            target="{{ item.link.target ? item.link.target : '_self' }}"
+                        >
+                            {% if item.image %}
+                                <div class="quote__post-image">
+                                    <img
+                                        class="quote__post-img"
+                                        src="{{ Image(item.image).src('large') }}"
+                                        srcset="{{ Image(item.image).srcset }}"
+                                        alt="{{ Image(item.image).alt }}"
+                                        data-object-fit
+                                    />
+                                </div>
+                            {% endif %}
+                            <h5 class="quote__post-title">{{ item.link.title }}</h5>
+                        </a>
+                    </article>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</section>

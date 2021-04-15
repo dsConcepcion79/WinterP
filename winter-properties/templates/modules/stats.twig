@@ -1,0 +1,23 @@
+<section class="stats stats--{{ module.type }}">
+    <div class="stats__inner">
+        <header class="stats__header">
+            {% if module.eyebrow %}
+                <div class="stats__eyebrow">{{ module.eyebrow }}</div>
+            {% endif %}
+            <h3 class="stats__heading">{{ module.heading }}</h3>
+        </header>
+        <ul
+            class="stats__list stats__list--{{ module.statistics|length is divisible by(4) ? 'even' : 'odd' }}"
+            role="presentation"
+        >
+            {% for stat in module.statistics %}
+                <li class="stats__list-item">
+                    <div class="stats__stat">
+                        <span class="stats__value">{{ stat.value }}</span>
+                        <span class="stats__unit">{{ stat.unit }}</span>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>

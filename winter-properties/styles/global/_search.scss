@@ -1,0 +1,109 @@
+/*
+ * Global Search
+ * ======================================================================== */
+
+.global-search {
+  .global-header__link {
+    background-image: url('../svgs/logo-white.svg');
+  }
+
+  .modal__inner {
+    background-color: $black;
+    color: $white;
+  }
+
+  .modal__content {
+    @include section;
+  }
+
+  .modal__open {
+    @include btn-reset;
+
+    background-image: url('../svgs/search-black.svg');
+    background-size: 18px 18px;
+    height: 24px;
+    margin-left: 24px;
+    width: 24px;
+
+    @include large-and-up {
+      margin-left: 32px;
+    }
+  }
+
+  .modal__close {
+    background-image: url('../svgs/close-white.svg');
+  }
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__form {
+    width: 100%;
+  }
+
+  &__label {
+    @include heading-5-alt;
+
+    margin-bottom: 24px;
+
+    @include large-and-up {
+      margin-bottom: 96px;
+    }
+  }
+
+  &__fieldset {
+    position: relative;
+  }
+
+  &__input {
+    @include heading-1-alt;
+
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid $body-gray;
+    border-radius: 0;
+    color: $red;
+    padding: 0 58px 16px 0;
+    resize: none;
+    width: 100%;
+
+    @include large-and-up {
+
+      padding: 0 98px 32px 0;
+    }
+
+    &::placeholder {
+      color: $red;
+      opacity: 50%;
+    }
+  }
+
+  &__submit {
+    @include btn-reset;
+
+    background-image: url('../svgs/search-red.svg');
+    background-size: 32px 32px;
+    color: transparent;
+    height: 48px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 48px;
+
+    @include large-and-up {
+      background-size: 58px 58px;
+      height: 88px;
+      width: 88px;
+    }
+  }
+
+  .body--inverted:not(.body--pinned) & {
+    @include large-and-up {
+      .modal__open {
+        background-image: url('../svgs/search-white.svg');
+      }
+    }
+  }
+}

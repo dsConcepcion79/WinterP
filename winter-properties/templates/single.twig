@@ -1,0 +1,88 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    {% include 'partials/subnav.twig' with { 'menu': menu_news.get_items } %}
+
+    <h1 class="visually-hidden" id="title">{{ post.title }}</h1>
+
+    <article class="post post-{{ post.post_type }}" id="post-{{ post.ID }}">
+        <div class="post__body">
+            <div class="post__content">
+                <section class="article {{ post.thumbnail ? 'article--has-image' : '' }}">
+                    {% if post.thumbnail %}
+                        <div class="article__hero">
+                            <div class="article__hero-image">
+                                <img
+                                    class="article__hero-img"
+                                    src="{{ post.thumbnail.src('large') }}"
+                                    srcset="{{ post.thumbnail.srcset }}"
+                                    alt="{{ post.thumbnail.alt }}"
+                                    data-object-fit
+                                />
+                            </div>
+                        </div>
+                    {% endif %}
+
+                    <div class="article__content">
+                        <div class="article__inner">
+                            <div class="article__category">
+                                {{ post.categories[0].name }}
+                            </div>
+                            <h2 class="article__heading">{{ post.title }}</h2>
+                            <!-- <p><a href="{{ post.edit_link }}">{{ _e('Edit') }}</a></p>  -->
+                            {{ post.content }}
+                        </div>
+
+                        {% if items|length %}
+                            <aside class="article__recent">
+                                <h4 class="article__recent-heading">Other Stories</h4>
+                                {% for item in items %}
+                                    <article class="article__item article__item--no-image">
+                                        <a class="article__item-link" href="{{ item.path }}">
+                                            {% if item.categories|length %}
+                                                <div class="article__item-category">
+                                                    {{ item.categories[0].name }}
+                                                </div>
+                                            {% endif %}
+                                            <div class="article__item-date">{{ item.date('F j, Y') }}</div>
+                                            <h5 class="article__item-title">{{ item.title }}</h5>
+                                        </a>
+                                    </article>
+                                {% endfor %}
+                                
+                                {% if items|length %}
+                                <div class="sidebar_widget">{{ single_right }}</div>
+                                {% endif %}
+                                
+                            </aside>
+                        {% endif %}
+                        
+                        
+                       	 
+                        
+
+                    </div>
+                </section>
+
+                {% set module = post.get_field('related_articles') %}
+                {% if module.items|length %}
+                    <section class="related-articles">
+                        <div class="related-articles__inner">
+                            <header class="related-articles__header">
+                                <h4 class="related-articles__heading">
+                                    {{ module.heading ? module.heading : 'Related Articles' }}
+                                </h4>
+                            </header>
+                            <div class="related-articles__items">
+                                {% for item in module.items %}
+                                    {% include 'partials/news-item.twig' with { type: 'related-articles', item: item.post } %}
+                                {% endfor %}
+                                <div class="related-articles__item related-articles__item--placeholder"></div>
+                            </div>
+                        </div>
+                    </section>
+                {% endif %}
+            </div>
+        </div>
+    </article>
+{% endblock %}

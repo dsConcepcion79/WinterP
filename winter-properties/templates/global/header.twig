@@ -1,0 +1,12 @@
+<header class="global-header" role="banner">
+    <h1 class="global-header__heading">
+        <a class="global-header__link" href="{{ site.url }}" rel="home">
+            <span class="visually-hidden">{{ site.name }}</span>
+        </a>
+    </h1>
+
+    <div class="global-header__nav">
+        {% include 'global/nav.twig' %}
+        {% include 'global/search.twig' %}
+    </div>
+</header>

@@ -1,0 +1,27 @@
+<section class="feature-article feature-article--{{ module.type }}">
+    {% if module.post.thumbnail %}
+        <div class="feature-article__image">
+            <img
+                class="feature-article__img"
+                src="{{ module.post.thumbnail.src('header_large') }}"
+                srcset="{{ module.post.thumbnail.srcset }}"
+                alt="{{ module.post.thumbnail.alt }}"
+                data-object-fit
+            />
+        </div>
+    {% endif %}
+    <div class="feature-article__inner">
+        <div class="feature-article__content">
+            <div class="feature-article__eyebrow">{{ module.post.categories[0].name }}</div>
+            <h1 class="feature-article__heading">
+                {{ module.heading ? module.heading : module.post.title }}
+            </h1>
+            <a
+                class="feature-article__link"
+                href="{{ module.post.path }}"
+            >
+                {{ module.link_label ? module.link_label : 'Read full story' }}
+            </a>
+        </div>
+    </div>
+</section>

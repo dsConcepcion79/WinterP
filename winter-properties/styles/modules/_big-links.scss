@@ -1,0 +1,53 @@
+/*
+ * Big Links Module
+ * ======================================================================== */
+
+.big-links {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__header {
+    @include section-header;
+
+    margin-bottom: 72px;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list-item {
+    @include animation-fade-in;
+
+    border-bottom: 1px solid $line-gray;
+    padding: 32px 0;
+
+    @include large-and-up {
+      padding: 48px 0;
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+  }
+
+  &__link {
+    @include heading-1-alt;
+
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,34 @@
+<section class="mosaic">
+    <div class="mosaic__inner">
+        <div class="mosaic__header">
+            {% if module.eyebrow %}
+                <div class="mosaic__eyebrow">{{ module.eyebrow }}</div>
+            {% endif %}
+            <h3 class="mosaic__heading">{{ module.heading }}</h3>
+            {% if module.button_link %}
+                <a
+                    class="mosaic__btn"
+                    href="{{ module.button_link.url }}"
+                    target="{{ module.button_link.target ? module.button_link.target : '_self' }}"
+                >
+                    <span class="mosaic__btn-label">{{ module.button_link.title }}</span>
+                </a>
+            {% endif %}
+        </div>
+        {% for image in module.images %}
+            <div class="mosaic__item">
+                {% if image.image %}
+                    <div class="mosaic__image">
+                        <img
+                            class="mosaic__img"
+                            src="{{ Image(image.image).src('large') }}"
+                            srcset="{{ Image(image.image).srcset }}"
+                            alt="{{ Image(image.image).alt }}"
+                            data-object-fit
+                        />
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+</section>

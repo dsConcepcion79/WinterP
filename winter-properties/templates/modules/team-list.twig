@@ -1,0 +1,54 @@
+<section class="team-list">
+    <div class="team-list__inner">
+        {% if module.eyebrow or module.heading %}
+            <header class="team-list__header">
+                {% if module.eyebrow %}
+                    <div class="team-list__eyebrow">{{ module.eyebrow }}</div>
+                {% endif %}
+                {% if module.heading %}
+                    <div class="team-list__heading">{{ module.heading }}</div>
+                {% endif %}
+            </header>
+        {% endif %}
+    </div>
+    <div class="team-list__items">
+        {% for item in module.items %}
+            <article class="team-list__item team-list__item--{{ item.type }}">
+                {% if item.team_member.thumbnail %}
+                    <div class="team-list__image">
+                        <img
+                            class="team-list__img"
+                            src="{{ item.team_member.thumbnail.src('large') }}"
+                            srcset="{{ item.team_member.thumbnail.srcset }}"
+                            alt="{{ item.team_member.thumbnail.alt }}"
+                            data-object-fit="cover"
+                            data-object-position="50% 0"
+                        />
+                    </div> 
+                {% endif %}
+                <h6 class="team-list__name">{{ item.team_member.title }}</h6>
+                <div class="team-list__title">{{ item.team_member.meta('title') }} </div>
+				<div class="social_links">
+					{% for social in item.team_member.meta('social_links') %}
+						<a href="{{ social.link.url }} " target="{{ social.link.target }}">  <i class="fa fa-{{ social.icon }}" aria-hidden="true"></i></a>
+					{% endfor %}
+				</div>
+                {% if item.team_member.meta('biography') %}
+                    {% set trigger_id = 'bio-trigger-'~loop.index %}
+                    {% set region_id = 'bio-region-'~loop.index %}
+
+                    <div class="team-list__body" id="{{ region_id }}" role="region">
+                        {{ item.team_member.meta('biography') }}
+                    </div>
+                    <button
+                        class="team-list__learn-more"
+                        id="{{ trigger_id }}"
+                        aria-controls="{{ region_id }}"
+                        aria-expanded="false"
+                    >Learn more</button>
+                {% endif %}
+            </article>
+        {% endfor %}
+        <div class="team-list__item team-list__item--placeholder"></div>
+    </div>
+</section>

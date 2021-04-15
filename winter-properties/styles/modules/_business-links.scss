@@ -1,0 +1,127 @@
+/*
+ * Business Links Module
+ * ======================================================================== */
+
+.business-links {
+  @include section;
+
+  &__inner {
+    @include section-inner;
+  }
+
+  &__header {
+    @include section-header;
+  }
+
+  &__eyebrow {
+    @include eyebrow;
+  }
+
+  &__heading {
+    p {
+      @include heading-4-alt;
+    }
+  }
+
+  &__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    @include medium-and-up {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__list-item {
+    @include animation-soft-ease;
+
+    margin-bottom: 32px;
+    width: 100%;
+
+    @include medium-and-up {
+      margin-bottom: 0;
+
+      .business-links__list-1-up & {
+        width: 75%;
+      }
+
+      .business-links__list-2-up & {
+        width: 48%;
+      }
+
+      .business-links__list-3-up & {
+        width: 31%;
+      }
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image-wrapper {
+    margin-bottom: 32px;
+    position: relative;
+
+    @include medium-and-up {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__image {
+    @include image-wrapper;
+
+    margin-left: -28px;
+    padding-bottom: 60%;
+    width: calc(100% + 56px);
+
+    @include medium-and-up {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+  &__img {
+    @include image;
+
+    transform: scale(1.2);
+    transition: transform 150ms ease-out;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
+
+  &__logo {
+    bottom: 0;
+    padding-bottom: 18%;
+    position: absolute;
+    right: -28px;
+    width: 18%;
+
+    @include medium-and-up {
+      right: 0;
+    }
+
+    &-img {
+      @include image;
+    }
+  }
+
+  &__body {
+    @include clear-last-child;
+
+    color: $body-gray;
+    margin-bottom: 16px;
+
+    @include medium-and-up {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__link {
+    @include cta-link;
+  }
+}

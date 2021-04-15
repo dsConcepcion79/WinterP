@@ -1,0 +1,40 @@
+<section class="profiles">
+    <div class="profiles__inner">
+        {% if module.eyebrow or module.heading %}
+            <header class="profiles__header">
+                {% if module.eyebrow %}
+                    <div class="profiles__eyebrow">{{ module.eyebrow }}</div>
+                {% endif %}
+                {% if module.heading %}
+                    <div class="profiles__heading">{{ module.heading }}</div>
+                {% endif %}
+            </header>
+        {% endif %}
+        <div class="profiles__items">
+            {% for item in module.items %}
+                <article class="profiles__item profiles__item--{{ item.type }}">
+                    {% if item.team_member.thumbnail %}
+                        <div class="profiles__image">
+                            <img
+                                class="profiles__img"
+                                src="{{ item.team_member.thumbnail.src('large') }}"
+                                srcset="{{ item.team_member.thumbnail.srcset }}"
+                                alt="{{ item.team_member.thumbnail.alt }}"
+                                data-object-fit="cover"
+                                data-object-position="50% 0"
+                            />
+                        </div>
+                    {% endif %}
+                    <h3 class="profiles__name">{{ item.team_member.title }}</h3>
+                    <div class="profiles__title">{{ item.team_member.meta('title') }}</div>
+                    {% include 'partials/social.twig' with { 'socials': item.team_member.meta('social_links') } %}
+                    {% if item.team_member.meta('biography') %}
+                        <div class="profiles__body">
+                            {{ item.team_member.meta('biography') }}
+                        </div>
+                    {% endif %}
+                </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>

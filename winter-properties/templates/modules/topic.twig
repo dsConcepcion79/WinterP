@@ -1,0 +1,100 @@
+<section class="topic topic--{{ module.type }} topic--{{ module.items|length or module.type == 'half-image' ? 'with-items' : 'without-items' }}">
+    {% if module.type == 'full-image' %}
+        <div class="topic__image">
+            <img
+                class="topic__img"
+                src="{{ Image(module.background_image).src('header_large') }}"
+                srcset="{{ Image(module.background_image).srcset }}"
+                alt="{{ Image(module.background_image).alt }}"
+                data-object-fit
+            />
+            {% if module.background_video %}
+                <video
+                    class="topic__video topic__video--{{ module.video_position }}"
+                    autoPlay="true"
+                    playsInline="true"
+                    loop="true"
+                    muted="true"
+                    data-object-fit="cover"
+                    {{ module.video_position == 'top' ? 'data-object-position="50% 0"' : '' }}
+                    {{ module.video_position == 'bottom' ? 'data-object-position="50% 100%"' : '' }}
+                >
+                    <source src="{{ Image(module.background_video).src }}" type="video/mp4" />
+                </video>
+            {% endif %}
+        </div>
+    {% endif %}
+    <div class="topic__left">
+        <div class="topic__inner">
+            <header class="topic__header">
+                {% if module.eyebrow %}
+                    <div class="topic__eyebrow">{{ module.eyebrow }}</div>
+                {% endif %}
+                <h3 class="topic__heading">{{ module.heading }}</h3>
+                {% if module.button_link %}
+                    <a
+                        class="topic__btn"
+                        href="{{ module.button_link.url }}"
+                        target="{{ module.button_link.target ? module.button_link.target : '_self' }}"
+                    >
+                        <span class="topic__btn-label">{{ module.button_link.title }}</span>
+                    </a>
+                {% endif %}
+                {% if module.social_link %}
+                    {% for link in module.social_link %}
+                        <div class="topic__social topic__social--{{ link.icon }}">
+                            <a
+                                class="topic__social-link"
+                                href="{{ link.link.url }}"
+                                target="{{ link.link.target ? link.link.target : '_self' }}"
+                            >
+                                {{ link.link.title }}
+                            </a>
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </header>
+        </div>
+    </div>
+    {% if module.items|length or module.type == 'half-image' %}
+        <div class="topic__right">
+            {% if module.type == 'half-image' %}
+                <div class="topic__image">
+                    <img
+                        class="topic__img"
+                        src="{{ Image(module.background_image).src('extra_large') }}"
+                        srcset="{{ Image(module.background_image).srcset }}"
+                        alt="{{ Image(module.background_image).alt }}"
+                        data-object-fit
+                    />
+                    {% if module.background_video %}
+                        <video
+                            class="topic__video topic__video--{{ module.video_position }}"
+                            autoPlay="true"
+                            playsInline="true"
+                            loop="true"
+                            muted="true"
+                            data-object-fit="cover"
+                            {{ module.video_position == 'top' ? 'data-object-position="50% 0"' : '' }}
+                            {{ module.video_position == 'bottom' ? 'data-object-position="50% 100%"' : '' }}
+                        >
+                            <source src="{{ Image(module.background_video).src }}" type="video/mp4" />
+                        </video>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="topic__inner">
+                {% for item in module.items %}
+                    <article class="topic__item">
+                        <a class="topic__item-link" href="{{ item.post.path }}">
+                            <div class="topic__item-category">
+                                {{ item.post.categories[0].name }}
+                            </div>
+                            <h5 class="topic__item-title">{{ item.post.title }}</h5>
+                        </a>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    {% endif %}
+</section>
